@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Gokyo Lakes Trek",
+    "region": "Khumbu",
+    "difficulty": "Moderate",
+    "duration": "12 days",
+    "altitude": 5360,
+    "budget": "Medium",
+    "minExperience": "Moderate",
+    "description": "Turquoise glacial lakes and views of Everest from Gokyo Ri.",
+    "highlights": ["Gokyo Ri", "Ngozumpa Glacier", "Six sacred lakes"],
+    "sustainabilityScore": 7,
+    "bestSeason": "Spring/Autumn",
+    "groupSize": "2-10 people",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg/1200px-Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg",
+    "weatherLocation": "Gokyo",
+    "coordinates": { "latitude": 27.9531, "longitude": 86.6947 },
+    "tags": ["Gokyo", "Everest", "Lakes"],
+    "featured": false,
+    "itinerary": ["Day 1: Kathmandu → Lukla → Phakding", "Day 2–11: Namche → Dole → Gokyo → Gokyo Ri → return"],
+    "reviews": [{ "name": "Sample", "rating": 5, "text": "Amazing lakes and quieter than EBC." }],
+    "accommodation": [
+      { "type": "Tea Houses", "description": "Lodges along the route", "price": "$12-25/night" }
+    ]
+  }
+]

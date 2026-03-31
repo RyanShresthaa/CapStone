@@ -1,0 +1,5 @@
+@import './styles/auth-pages.css';
+
+.input-container:has(.password-toggle) .form-input {
+  padding-right: 2.85rem;
+}
