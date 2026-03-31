@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useAuth } from './contexts/AuthContext';
 import { useTheme } from './contexts/ThemeContext';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { FaUser, FaEdit, FaMedal, FaStar, FaCloudSun, FaMoon, FaSun, FaLock, FaTrash, FaEye } from 'react-icons/fa';
+=======
+import { FaUser, FaEdit, FaMedal, FaStar, FaCloudSun, FaBell, FaMoon, FaSun, FaClipboardList, FaCamera, FaLock, FaTrash, FaEye } from 'react-icons/fa';
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 import './Profile.css';
 
 const ACHIEVEMENTS = [

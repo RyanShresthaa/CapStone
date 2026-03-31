@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
+<<<<<<< HEAD
 import { FaMapMarkerAlt, FaCalendarAlt, FaUsers, FaSearch, FaStar, FaHeart, FaShare, FaMapMarkedAlt, FaUserTie, FaGlobe, FaSearchLocation, FaMountain, FaArrowRight, FaPlay, FaPause, FaChevronLeft, FaChevronRight, FaBookmark, FaEye, FaThermometerHalf, FaUserGraduate, FaShieldAlt, FaHandshake, FaRoute } from "react-icons/fa";
+=======
+import { FaMapMarkerAlt, FaCalendarAlt, FaUsers, FaSearch, FaStar, FaHeart, FaShare, FaCloudSun, FaHiking, FaCompass, FaGlobeAsia, FaMapMarkedAlt, FaUserTie, FaGlobe, FaSearchLocation, FaMountain, FaArrowRight, FaPlay, FaPause, FaChevronLeft, FaChevronRight, FaBookmark, FaEye, FaThermometerHalf, FaUserGraduate, FaShieldAlt, FaHandshake, FaRoute } from "react-icons/fa";
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 import { useAuth } from "./contexts/AuthContext";
 import WeatherComponent from "./components/WeatherComponent";
 import TestimonialsSection from "./components/TestimonialsSection";
 import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+<<<<<<< HEAD
 import { trekAPI } from "./services/api";
 import { TREK_LOCATION_PHOTOS as P } from "./data/trekLocationPhotos";
 
@@ -42,6 +47,17 @@ function mapApiTrekToHome(t) {
 
 const HomePage = () => {
   const { user } = useAuth();
+=======
+
+const NEW_HERO_IMAGE = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80";
+const NEW_TAGLINE = "Trek Beyond Ordinary. Discover, Connect, and Explore Nepal's Wonders.";
+
+const HomePage = () => {
+  const { user } = useAuth();
+  const [destination, setDestination] = useState("");
+  const [date, setDate] = useState("");
+  const [guests, setGuests] = useState("2");
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   const [userLocation, setUserLocation] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -59,6 +75,7 @@ const HomePage = () => {
 
   // Hero background images for slideshow
   const heroImages = [
+<<<<<<< HEAD
     P.mountEverest,
     P.everestBaseCamp,
     P.thorongLa,
@@ -67,11 +84,25 @@ const HomePage = () => {
 
   // Fallback catalog when API is offline; replaced by Mongo-backed treks when available
   const STATIC_TREKS_FALLBACK = [
+=======
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1500&q=80",
+    "https://images.unsplash.com/photo-1464013778555-8e723c2f01f8?auto=format&fit=crop&w=1500&q=80",
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1500&q=80"
+  ];
+
+  // Enhanced featured treks with more details
+  const featuredTreks = [
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     {
       id: 1,
       name: "Everest Base Camp",
       location: "Khumbu, Nepal",
+<<<<<<< HEAD
       image: P.everestBaseCamp,
+=======
+      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.9,
       reviews: 156,
       price: "$1,850",
@@ -91,7 +122,11 @@ const HomePage = () => {
       id: 2,
       name: "Annapurna Circuit",
       location: "Annapurna, Nepal",
+<<<<<<< HEAD
       image: P.thorongLa,
+=======
+      image: "https://images.unsplash.com/photo-1464013778555-8e723c2f01f8?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.8,
       reviews: 89,
       price: "$1,450",
@@ -111,7 +146,11 @@ const HomePage = () => {
       id: 3,
       name: "Langtang Valley",
       location: "Langtang, Nepal",
+<<<<<<< HEAD
       image: P.langtangValley,
+=======
+      image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.7,
       reviews: 124,
       price: "$950",
@@ -131,7 +170,11 @@ const HomePage = () => {
       id: 4,
       name: "Manaslu Circuit",
       location: "Manaslu, Nepal",
+<<<<<<< HEAD
       image: P.manasluFromTimang,
+=======
+      image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.6,
       reviews: 67,
       price: "$1,650",
@@ -146,6 +189,7 @@ const HomePage = () => {
       featured: false,
       views: 445,
       bookings: 23
+<<<<<<< HEAD
     },
     {
       id: 5,
@@ -244,6 +288,11 @@ const HomePage = () => {
     };
   }, []);
 
+=======
+    }
+  ];
+
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   const quickActions = [
     { 
       icon: FaMapMarkedAlt, 
@@ -425,7 +474,11 @@ const HomePage = () => {
     }
   };
 
+<<<<<<< HEAD
   const filteredTreks = trekCatalog.filter((trek) => {
+=======
+  const filteredTreks = featuredTreks.filter(trek => {
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     const matchesSearch = trek.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          trek.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          trek.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -748,7 +801,14 @@ const HomePage = () => {
         </div>
       </section>
 
+<<<<<<< HEAD
       <TestimonialsSection />
+=======
+      {/* Testimonials Section */}
+      <section className="testimonials-section" id="testimonials">
+        <TestimonialsSection />
+      </section>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
       {/* Why NepGo Section - Interactive */}
       <section className="features-section" id="features">

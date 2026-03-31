@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { FaMapMarkerAlt, FaStar, FaHeart, FaShare, FaBookmark, FaEye, FaArrowLeft, FaSearch } from 'react-icons/fa';
@@ -32,11 +33,36 @@ function mapSearchTrek(t) {
 }
 
 const SEARCH_RESULTS_FALLBACK = [
+=======
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { FaMapMarkerAlt, FaStar, FaHeart, FaShare, FaBookmark, FaEye, FaArrowLeft, FaSearch, FaFilter } from 'react-icons/fa';
+import toast from 'react-hot-toast';
+import './SearchResults.css';
+
+const SearchResults = () => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredTreks, setFilteredTreks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [filterCategory, setFilterCategory] = useState('all');
+  const [sortBy, setSortBy] = useState('relevance');
+  const [likedTreks, setLikedTreks] = useState(new Set());
+  const [bookmarkedTreks, setBookmarkedTreks] = useState(new Set());
+
+  // Sample trek data - in a real app, this would come from an API
+  const allTreks = [
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     {
       id: 1,
       name: "Everest Base Camp",
       location: "Khumbu, Nepal",
+<<<<<<< HEAD
       image: P.everestBaseCamp,
+=======
+      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.9,
       reviews: 156,
       price: "$1,850",
@@ -52,7 +78,11 @@ const SEARCH_RESULTS_FALLBACK = [
       id: 2,
       name: "Annapurna Circuit",
       location: "Annapurna, Nepal",
+<<<<<<< HEAD
       image: P.thorongLa,
+=======
+      image: "https://images.unsplash.com/photo-1464013778555-8e723c2f01f8?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.8,
       reviews: 89,
       price: "$1,450",
@@ -68,7 +98,11 @@ const SEARCH_RESULTS_FALLBACK = [
       id: 3,
       name: "Langtang Valley",
       location: "Langtang, Nepal",
+<<<<<<< HEAD
       image: P.langtangValley,
+=======
+      image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.7,
       reviews: 124,
       price: "$950",
@@ -84,7 +118,11 @@ const SEARCH_RESULTS_FALLBACK = [
       id: 4,
       name: "Manaslu Circuit",
       location: "Manaslu, Nepal",
+<<<<<<< HEAD
       image: P.manasluFromTimang,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.6,
       reviews: 78,
       price: "$1,650",
@@ -100,7 +138,11 @@ const SEARCH_RESULTS_FALLBACK = [
       id: 5,
       name: "Poon Hill Trek",
       location: "Annapurna, Nepal",
+<<<<<<< HEAD
       image: P.poonHill,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.5,
       reviews: 203,
       price: "$650",
@@ -116,7 +158,11 @@ const SEARCH_RESULTS_FALLBACK = [
       id: 6,
       name: "Upper Mustang",
       location: "Mustang, Nepal",
+<<<<<<< HEAD
       image: P.loManthang,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       rating: 4.4,
       reviews: 67,
       price: "$2,200",
@@ -127,6 +173,7 @@ const SEARCH_RESULTS_FALLBACK = [
       category: "cultural",
       views: 334,
       bookings: 23
+<<<<<<< HEAD
     },
     {
       id: 7,
@@ -202,12 +249,40 @@ const SearchResults = () => {
       setIsLoading(false);
     }, 400);
   }, []);
+=======
+    }
+  ];
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
   useEffect(() => {
     const query = searchParams.get('q') || '';
     setSearchQuery(query);
     performSearch(query);
+<<<<<<< HEAD
   }, [searchParams, performSearch]);
+=======
+  }, [searchParams]);
+
+  const performSearch = (query) => {
+    setIsLoading(true);
+    
+    // Simulate API delay
+    setTimeout(() => {
+      if (!query.trim()) {
+        setFilteredTreks(allTreks);
+      } else {
+        const results = allTreks.filter(trek => 
+          trek.name.toLowerCase().includes(query.toLowerCase()) ||
+          trek.location.toLowerCase().includes(query.toLowerCase()) ||
+          trek.description.toLowerCase().includes(query.toLowerCase()) ||
+          trek.category.toLowerCase().includes(query.toLowerCase())
+        );
+        setFilteredTreks(results);
+      }
+      setIsLoading(false);
+    }, 500);
+  };
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
   const handleTrekLike = (trekId) => {
     setLikedTreks(prev => {

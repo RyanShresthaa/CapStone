@@ -15,8 +15,12 @@ const api = axios.create({
 // Request interceptor to add auth token
 api.interceptors.request.use(
   (config) => {
+<<<<<<< HEAD
     const token =
       localStorage.getItem('token') || sessionStorage.getItem('token');
+=======
+    const token = localStorage.getItem('token');
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -27,6 +31,7 @@ api.interceptors.request.use(
   }
 );
 
+<<<<<<< HEAD
 function isAuthRequestUrl(url) {
   if (!url) return false;
   const u = String(url);
@@ -38,11 +43,14 @@ function isAuthRequestUrl(url) {
   );
 }
 
+=======
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 // Response interceptor to handle errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
+<<<<<<< HEAD
       const url = error.config?.url || '';
       if (!isAuthRequestUrl(url)) {
         localStorage.removeItem('token');
@@ -51,6 +59,11 @@ api.interceptors.response.use(
         sessionStorage.removeItem('user');
         window.location.href = '/login';
       }
+=======
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = '/login';
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     }
     return Promise.reject(error);
   }
@@ -148,8 +161,12 @@ export const weatherAPI = {
 // Community API
 export const communityAPI = {
   // Create forum post
+<<<<<<< HEAD
   createPost: (title, content, category) =>
     api.post('/api/forum/posts', { title, content, category }),
+=======
+  createPost: (title, content) => api.post('/api/forum/posts', { title, content }),
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   
   // Get all forum posts
   getPosts: () => api.get('/api/forum/posts'),

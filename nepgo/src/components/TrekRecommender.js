@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaMountain, FaClock, FaDollarSign, FaStar, FaMapMarkerAlt, FaThermometerHalf, FaUsers, FaLeaf, FaHeart, FaEye, FaCalendarAlt } from 'react-icons/fa';
@@ -9,6 +10,36 @@ import { TREK_LOCATION_PHOTOS as P } from '../data/trekLocationPhotos';
 import './TrekRecommender.css';
 
 const TREK_FALLBACK_DATABASE = [
+=======
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaMountain, FaClock, FaDollarSign, FaStar, FaMapMarkerAlt, FaThermometerHalf, FaUsers, FaLeaf, FaHeart, FaEye } from 'react-icons/fa';
+import toast from 'react-hot-toast';
+import './TrekRecommender.css';
+
+const TrekRecommender = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    experience: '',
+    budget: '',
+    timeAvailable: '',
+    preferredRegion: '',
+    groupSize: '',
+    season: ''
+  });
+
+  const [recommendations, setRecommendations] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [wishlist, setWishlist] = useState(() => {
+    const saved = localStorage.getItem('trekWishlist');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [showWishlist, setShowWishlist] = useState(false);
+
+  // Comprehensive trek database with real data
+  const trekDatabase = [
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     {
       id: 1,
       name: "Everest Base Camp Trek",
@@ -23,7 +54,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 8,
       bestSeason: "Spring/Autumn",
       groupSize: "2-12 people",
+<<<<<<< HEAD
       image: P.everestBaseCamp,
+=======
+      image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Everest Base Camp",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
@@ -65,7 +100,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 7,
       bestSeason: "Spring/Autumn",
       groupSize: "2-15 people",
+<<<<<<< HEAD
       image: P.thorongLa,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Annapurna",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
@@ -111,7 +150,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 9,
       bestSeason: "Spring/Autumn/Winter",
       groupSize: "2-10 people",
+<<<<<<< HEAD
       image: P.langtangValley,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Langtang",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
@@ -148,7 +191,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 8,
       bestSeason: "Spring/Autumn",
       groupSize: "2-8 people",
+<<<<<<< HEAD
       image: P.manasluFromTimang,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Manaslu",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
@@ -192,7 +239,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 6,
       bestSeason: "All year",
       groupSize: "2-15 people",
+<<<<<<< HEAD
       image: P.poonHill,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Pokhara",
       itinerary: [
         "Day 1: Kathmandu → Pokhara (820m) - Arrival & Preparation\n   • Drive or fly to Pokhara\n   • Trek briefing and gear check\n   • Overnight: Pokhara hotel",
@@ -226,7 +277,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 7,
       bestSeason: "Spring/Autumn",
       groupSize: "2-10 people",
+<<<<<<< HEAD
       image: P.loManthang,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Mustang",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
@@ -267,7 +322,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 8,
       bestSeason: "Spring/Autumn",
       groupSize: "2-8 people",
+<<<<<<< HEAD
       image: P.machhapuchhre,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Pokhara",
       itinerary: [
         "Day 1: Kathmandu → Pokhara (820m) - Arrival & Preparation\n   • Drive or fly to Pokhara\n   • Trek briefing and gear check\n   • Overnight: Pokhara hotel",
@@ -302,7 +361,11 @@ const TREK_FALLBACK_DATABASE = [
       sustainabilityScore: 9,
       bestSeason: "Spring/Autumn",
       groupSize: "2-6 people",
+<<<<<<< HEAD
       image: P.kangchenjunga,
+=======
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       weatherLocation: "Taplejung",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
@@ -338,6 +401,7 @@ const TREK_FALLBACK_DATABASE = [
     }
   ];
 
+<<<<<<< HEAD
 function normalizeTrekFromApi(row) {
   if (!row) return null;
   const image = row.image || (Array.isArray(row.images) && row.images[0]) || '';
@@ -380,6 +444,8 @@ const TrekRecommender = () => {
   const [wishlist, setWishlist] = useState([]);
   const [showWishlist, setShowWishlist] = useState(false);
 
+=======
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   const experienceLevels = [
     { value: 'Beginner', label: 'Beginner (First time trekker)' },
     { value: 'Moderate', label: 'Moderate (Some trekking experience)' },
@@ -423,6 +489,7 @@ const TrekRecommender = () => {
     }));
   };
 
+<<<<<<< HEAD
   const getRecommendations = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -438,6 +505,135 @@ const TrekRecommender = () => {
       setShowResults(true);
       setIsLoading(false);
     }, 800);
+=======
+  const calculateTrekScore = (trek, preferences) => {
+    let score = 0;
+    
+    // Experience match (35% weight) - More nuanced matching
+    if (preferences.experience === trek.minExperience) {
+      score += 35;
+    } else if (preferences.experience === 'Experienced') {
+      if (trek.minExperience === 'Moderate') score += 30;
+      else if (trek.minExperience === 'Beginner') score += 25;
+      else score += 20;
+    } else if (preferences.experience === 'Moderate') {
+      if (trek.minExperience === 'Beginner') score += 30;
+      else if (trek.minExperience === 'Experienced') score += 25;
+      else score += 20;
+    } else { // Beginner
+      if (trek.minExperience === 'Beginner') score += 35;
+      else if (trek.minExperience === 'Moderate') score += 20;
+      else score += 10; // Experienced treks are not suitable for beginners
+    }
+
+    // Budget match (25% weight) - More precise matching
+    if (preferences.budget === trek.budget) {
+      score += 25;
+    } else if (preferences.budget === 'High') {
+      if (trek.budget === 'Medium') score += 20;
+      else if (trek.budget === 'Low') score += 15;
+      else score += 25; // High budget matches high budget
+    } else if (preferences.budget === 'Medium') {
+      if (trek.budget === 'Low') score += 20;
+      else if (trek.budget === 'High') score += 15;
+      else score += 25; // Medium budget matches medium budget
+    } else { // Low budget
+      if (trek.budget === 'Low') score += 25;
+      else if (trek.budget === 'Medium') score += 15;
+      else score += 5; // High budget treks are not suitable for low budget
+    }
+
+    // Time match (20% weight) - More flexible matching
+    const trekDays = parseInt(trek.duration);
+    const preferredDays = preferences.timeAvailable.split('-')[1] || preferences.timeAvailable.split('-')[0];
+    const maxPreferredDays = parseInt(preferredDays);
+    
+    if (trekDays <= maxPreferredDays) {
+      score += 20;
+    } else if (trekDays <= maxPreferredDays + 3) {
+      score += 15; // Slightly over but still manageable
+    } else if (trekDays <= maxPreferredDays + 7) {
+      score += 10; // Over but possible with time adjustment
+    } else {
+      score += 5; // Too long for available time
+    }
+
+    // Region preference (15% weight) - Stronger regional preference
+    if (preferences.preferredRegion === 'Any') {
+      score += 15;
+    } else if (preferences.preferredRegion === trek.region) {
+      score += 15;
+    } else {
+      score += 5; // Different region but still possible
+    }
+
+    // Season match (5% weight)
+    if (preferences.season && trek.bestSeason.includes(preferences.season)) {
+      score += 5;
+    } else if (preferences.season && trek.bestSeason === 'All year') {
+      score += 5;
+    } else {
+      score += 2; // Not ideal season but still possible
+    }
+
+    return score;
+  };
+
+  const getRecommendations = () => {
+    setIsLoading(true);
+    
+    // Simulate API call delay
+    setTimeout(() => {
+      const scoredTreks = trekDatabase.map(trek => ({
+        ...trek,
+        score: calculateTrekScore(trek, formData)
+      }));
+
+      // Filter out low-scoring treks and ensure diversity
+      const filteredTreks = scoredTreks
+        .filter(trek => trek.score >= 25) // Lower threshold for more options
+        .sort((a, b) => b.score - a.score);
+
+      // Ensure diversity by selecting different regions and difficulties
+      const diverseRecommendations = [];
+      const selectedRegions = new Set();
+      const selectedDifficulties = new Set();
+
+      // First, add the highest scoring trek
+      if (filteredTreks.length > 0) {
+        diverseRecommendations.push(filteredTreks[0]);
+        selectedRegions.add(filteredTreks[0].region);
+        selectedDifficulties.add(filteredTreks[0].difficulty);
+      }
+
+      // Add diverse options
+      for (let i = 1; i < filteredTreks.length && diverseRecommendations.length < 3; i++) {
+        const trek = filteredTreks[i];
+        
+        // Prefer treks from different regions and difficulties
+        const isDifferentRegion = !selectedRegions.has(trek.region);
+        const isDifferentDifficulty = !selectedDifficulties.has(trek.difficulty);
+        
+        if (isDifferentRegion || isDifferentDifficulty) {
+          diverseRecommendations.push(trek);
+          selectedRegions.add(trek.region);
+          selectedDifficulties.add(trek.difficulty);
+        }
+      }
+
+      // If we don't have 3 diverse options, add more from the top scores
+      for (let i = 1; i < filteredTreks.length && diverseRecommendations.length < 3; i++) {
+        const trek = filteredTreks[i];
+        if (!diverseRecommendations.find(r => r.id === trek.id)) {
+          diverseRecommendations.push(trek);
+        }
+      }
+
+      setRecommendations(diverseRecommendations);
+      setShowResults(true);
+      setIsLoading(false);
+    }, 1500);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   };
 
   const handleSubmit = (e) => {
@@ -458,6 +654,7 @@ const TrekRecommender = () => {
     setRecommendations([]);
   };
 
+<<<<<<< HEAD
   const difficultyClass = (d) =>
     ({ Easy: 'easy', Moderate: 'moderate', Challenging: 'challenging' }[d] || 'moderate');
 
@@ -519,6 +716,30 @@ const TrekRecommender = () => {
       localStorage.setItem('trekWishlist', JSON.stringify(wishlist));
     }
   }, [wishlist, isAuthenticated]);
+=======
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty) {
+      case 'Easy': return '#10b981';
+      case 'Moderate': return '#f59e0b';
+      case 'Challenging': return '#ef4444';
+      default: return '#6b7280';
+    }
+  };
+
+  const getBudgetColor = (budget) => {
+    switch (budget) {
+      case 'Low': return '#10b981';
+      case 'Medium': return '#f59e0b';
+      case 'High': return '#ef4444';
+      default: return '#6b7280';
+    }
+  };
+
+  // Save wishlist to localStorage whenever it changes
+  React.useEffect(() => {
+    localStorage.setItem('trekWishlist', JSON.stringify(wishlist));
+  }, [wishlist]);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
   const handleViewDetails = (trek) => {
     // Navigate to trek detail page
@@ -530,6 +751,7 @@ const TrekRecommender = () => {
     });
   };
 
+<<<<<<< HEAD
   const handleAddToWishlist = async (trek) => {
     const isInWishlist = wishlist.some((item) => item.id === trek.id);
 
@@ -555,6 +777,20 @@ const TrekRecommender = () => {
         }
       }
       setWishlist((list) => [...list, { ...trek, addedAt: new Date().toISOString() }]);
+=======
+  const handleAddToWishlist = (trek) => {
+    const isInWishlist = wishlist.some(item => item.id === trek.id);
+    
+    if (isInWishlist) {
+      // Remove from wishlist
+      const updatedWishlist = wishlist.filter(item => item.id !== trek.id);
+      setWishlist(updatedWishlist);
+      toast.success(`${trek.name} removed from wishlist!`);
+    } else {
+      // Add to wishlist
+      const updatedWishlist = [...wishlist, { ...trek, addedAt: new Date().toISOString() }];
+      setWishlist(updatedWishlist);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       toast.success(`${trek.name} added to wishlist!`);
     }
   };
@@ -602,22 +838,41 @@ const TrekRecommender = () => {
                 <div key={trek.id} className="trek-card wishlist-card">
                   <div className="trek-card-header">
                     <div className="trek-image">
+<<<<<<< HEAD
                       <img src={trek.image} alt={trek.name} loading="lazy" decoding="async" />
+=======
+                      <img src={trek.image} alt={trek.name} />
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                       <div className="wishlist-badge">
                         <FaHeart />
                       </div>
                     </div>
                     <div className="trek-badges">
+<<<<<<< HEAD
                       <span className={`badge badge-difficulty badge-difficulty--${difficultyClass(trek.difficulty)}`}>
                         {trek.difficulty}
                       </span>
                       <span className={`badge badge-budget badge-budget--${budgetClass(trek.budget)}`}>
                         {trek.budget} budget
+=======
+                      <span 
+                        className="badge difficulty"
+                        style={{ backgroundColor: getDifficultyColor(trek.difficulty) }}
+                      >
+                        {trek.difficulty}
+                      </span>
+                      <span 
+                        className="badge budget"
+                        style={{ backgroundColor: getBudgetColor(trek.budget) }}
+                      >
+                        {trek.budget}
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                       </span>
                     </div>
                   </div>
 
                   <div className="trek-card-content">
+<<<<<<< HEAD
                     <p className="trek-region-eyebrow">
                       <FaMapMarkerAlt aria-hidden />
                       {trek.region} region, Nepal
@@ -645,6 +900,27 @@ const TrekRecommender = () => {
                         <FaCalendarAlt className="trek-stat-icon" aria-hidden />
                         <span className="trek-stat-label">Best season</span>
                         <span className="trek-stat-value">{trek.bestSeason}</span>
+=======
+                    <h3 className="trek-name">{trek.name}</h3>
+                    <p className="trek-description">{trek.description}</p>
+                    
+                    <div className="trek-details">
+                      <div className="detail-item">
+                        <FaMapMarkerAlt />
+                        <span>{trek.region}</span>
+                      </div>
+                      <div className="detail-item">
+                        <FaClock />
+                        <span>{trek.duration}</span>
+                      </div>
+                      <div className="detail-item">
+                        <FaMountain />
+                        <span>{trek.altitude}m</span>
+                      </div>
+                      <div className="detail-item">
+                        <FaUsers />
+                        <span>{trek.groupSize}</span>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                       </div>
                     </div>
 
@@ -672,6 +948,7 @@ const TrekRecommender = () => {
         ) : !showResults ? (
           /* Recommendation Form */
           <div className="recommender-form-container">
+<<<<<<< HEAD
             {treksLoading ? (
               <p className="trek-recommender-banner" role="status">
                 Loading trek catalog from the server…
@@ -685,6 +962,8 @@ const TrekRecommender = () => {
                 </button>
               </p>
             ) : null}
+=======
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
             <form onSubmit={handleSubmit} className="recommender-form">
               <div className="form-grid">
                 {/* Experience Level */}
@@ -820,7 +1099,11 @@ const TrekRecommender = () => {
                 <button
                   type="submit"
                   className="btn-primary"
+<<<<<<< HEAD
                   disabled={isLoading || treksLoading || trekDatabase.length === 0}
+=======
+                  disabled={isLoading}
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                 >
                   {isLoading ? 'Finding Treks...' : 'Get Recommendations'}
                 </button>
@@ -843,23 +1126,42 @@ const TrekRecommender = () => {
                 <div key={trek.id} className="trek-card">
                   <div className="trek-card-header">
                     <div className="trek-image">
+<<<<<<< HEAD
                       <img src={trek.image} alt={trek.name} loading="lazy" decoding="async" />
+=======
+                      <img src={trek.image} alt={trek.name} />
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                       <div className="trek-score">
                         <span>{trek.score}%</span>
                         <small>Match</small>
                       </div>
                     </div>
                     <div className="trek-badges">
+<<<<<<< HEAD
                       <span className={`badge badge-difficulty badge-difficulty--${difficultyClass(trek.difficulty)}`}>
                         {trek.difficulty}
                       </span>
                       <span className={`badge badge-budget badge-budget--${budgetClass(trek.budget)}`}>
                         {trek.budget} budget
+=======
+                      <span 
+                        className="badge difficulty"
+                        style={{ backgroundColor: getDifficultyColor(trek.difficulty) }}
+                      >
+                        {trek.difficulty}
+                      </span>
+                      <span 
+                        className="badge budget"
+                        style={{ backgroundColor: getBudgetColor(trek.budget) }}
+                      >
+                        {trek.budget}
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                       </span>
                     </div>
                   </div>
 
                   <div className="trek-card-content">
+<<<<<<< HEAD
                     <p className="trek-region-eyebrow">
                       <FaMapMarkerAlt aria-hidden />
                       {trek.region} region, Nepal
@@ -889,18 +1191,45 @@ const TrekRecommender = () => {
                         <FaCalendarAlt className="trek-stat-icon" aria-hidden />
                         <span className="trek-stat-label">Best season</span>
                         <span className="trek-stat-value">{trek.bestSeason}</span>
+=======
+                    <h3 className="trek-name">{trek.name}</h3>
+                    <p className="trek-description">{trek.description}</p>
+                    
+                    <div className="trek-details">
+                      <div className="detail-item">
+                        <FaMapMarkerAlt />
+                        <span>{trek.region}</span>
+                      </div>
+                      <div className="detail-item">
+                        <FaClock />
+                        <span>{trek.duration}</span>
+                      </div>
+                      <div className="detail-item">
+                        <FaMountain />
+                        <span>{trek.altitude}m</span>
+                      </div>
+                      <div className="detail-item">
+                        <FaUsers />
+                        <span>{trek.groupSize}</span>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                       </div>
                     </div>
 
                     <div className="trek-highlights">
+<<<<<<< HEAD
                       <h4 className="trek-section-heading">Trip highlights</h4>
                       <ul className="trek-highlights-list">
+=======
+                      <h4>Highlights:</h4>
+                      <ul>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                         {trek.highlights.map((highlight, idx) => (
                           <li key={idx}>{highlight}</li>
                         ))}
                       </ul>
                     </div>
 
+<<<<<<< HEAD
                     <div className="trek-sustainability">
                       <FaLeaf aria-hidden />
                       <div className="trek-sustainability-text">
@@ -925,6 +1254,27 @@ const TrekRecommender = () => {
                     </div>
 
                     <div className="trek-actions">
+=======
+                                         <div className="trek-sustainability">
+                       <FaLeaf />
+                       <span>Sustainability Score: {trek.sustainabilityScore}/10</span>
+                     </div>
+
+                     <div className="trek-accommodation">
+                       <h4>Accommodation Options:</h4>
+                       <div className="accommodation-options">
+                         {trek.accommodation.map((option, idx) => (
+                           <div key={idx} className="accommodation-option">
+                             <div className="accommodation-type">{option.type}</div>
+                             <div className="accommodation-description">{option.description}</div>
+                             <div className="accommodation-price">{option.price}</div>
+                           </div>
+                         ))}
+                       </div>
+                     </div>
+
+                                         <div className="trek-actions">
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                        <button 
                          className="btn-primary"
                          onClick={() => handleViewDetails(trek)}

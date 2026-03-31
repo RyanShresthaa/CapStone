@@ -1,14 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaClock, FaStar, FaUsers } from 'react-icons/fa';
+<<<<<<< HEAD
 import { TREK_LOCATION_PHOTOS as P } from '../data/trekLocationPhotos';
+=======
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
 const FeaturedTreks = () => {
   const trekData = [
     {
       id: 1,
       name: "Everest Base Camp",
+<<<<<<< HEAD
       image: P.everestBaseCamp,
+=======
+      image: "/mountain.jpg",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       duration: "14 days",
       difficulty: "Challenging",
       rating: 4.8,
@@ -20,7 +27,11 @@ const FeaturedTreks = () => {
     {
       id: 2,
       name: "Annapurna Circuit",
+<<<<<<< HEAD
       image: P.thorongLa,
+=======
+      image: "/background-mountains.jpg",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       duration: "18 days",
       difficulty: "Moderate",
       rating: 4.7,
@@ -44,7 +55,11 @@ const FeaturedTreks = () => {
     {
       id: 4,
       name: "Manaslu Circuit",
+<<<<<<< HEAD
       image: P.manasluFromTimang,
+=======
+      image: "/background-mountains.jpg",
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       duration: "16 days",
       difficulty: "Challenging",
       rating: 4.9,

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+<<<<<<< HEAD
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     extend: {
@@ -32,6 +33,44 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'Plus Jakarta Sans', 'ui-sans-serif', 'system-ui'],
         display: ['Plus Jakarta Sans', 'Inter', 'system-ui'],
+=======
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./public/index.html"
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+        secondary: {
+          50: '#fdf4ff',
+          100: '#fae8ff',
+          200: '#f5d0fe',
+          300: '#f0abfc',
+          400: '#e879f9',
+          500: '#d946ef',
+          600: '#c026d3',
+          700: '#a21caf',
+          800: '#86198f',
+          900: '#701a75',
+        }
+      },
+      fontFamily: {
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+        'serif': ['Georgia', 'ui-serif'],
+        'mono': ['Fira Code', 'ui-monospace'],
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -53,6 +92,7 @@ module.exports = {
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },
+<<<<<<< HEAD
       boxShadow: {
         nep: '0 8px 24px -8px rgba(79, 70, 229, 0.15), 0 4px 12px -4px rgba(234, 88, 12, 0.08)',
         'nep-md': '0 20px 40px -16px rgba(79, 70, 229, 0.2), 0 12px 28px -12px rgba(234, 88, 12, 0.1)',
@@ -71,3 +111,12 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
+=======
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
+}
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useCallback } from 'react';
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 import axios from 'axios';
 import { 
   FaThermometerHalf, 
@@ -55,7 +59,11 @@ const WeatherComponent = ({
     return <FaSun className="weather-icon" />;
   };
 
+<<<<<<< HEAD
   const fetchWeatherData = useCallback(async () => {
+=======
+  const fetchWeatherData = async () => {
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     try {
       setLoading(true);
       setError(null);
@@ -137,11 +145,19 @@ const WeatherComponent = ({
       }
       setLoading(false);
     }
+<<<<<<< HEAD
   }, [city, country, coordinates, showForecast]);
 
   useEffect(() => {
     fetchWeatherData();
   }, [fetchWeatherData]);
+=======
+  };
+
+  useEffect(() => {
+    fetchWeatherData();
+  }, [city, country, coordinates, showForecast]);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
   const formatTime = (timestamp) => {
     return new Date(timestamp * 1000).toLocaleTimeString('en-US', {

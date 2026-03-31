@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import "./Login.css";
+<<<<<<< HEAD
 import { FaEye, FaEyeSlash, FaSpinner, FaMountain, FaEnvelope, FaLock } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
+=======
+import { FaUser, FaEye, FaEyeSlash, FaSpinner, FaMountain, FaEnvelope, FaLock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./contexts/AuthContext";
+import { useTheme } from "./contexts/ThemeContext";
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
+<<<<<<< HEAD
+=======
+  const { isDarkMode } = useTheme();
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -74,7 +85,11 @@ const Login = () => {
       if (result.success) {
         // Success animation and toast
         setError("");
+<<<<<<< HEAD
         const successElement = document.querySelector('.submit-btn');
+=======
+        const successElement = document.querySelector('.login-btn');
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
         if (successElement) {
           successElement.classList.add('success-animation');
         }
@@ -101,6 +116,7 @@ const Login = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="auth-page-container auth-page-container--login">
       <div className="auth-bg-layer" aria-hidden>
         <div className="auth-bg-mesh" />
@@ -145,6 +161,32 @@ const Login = () => {
                 <h1 className="auth-title">Welcome back</h1>
                 <p className="auth-subtitle">Sign in to pick up where you left off.</p>
               </div>
+=======
+    <div className="auth-page-container">
+      {/* Animated Background */}
+      <div className="auth-background">
+        <div className="floating-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+          <div className="shape shape-4"></div>
+        </div>
+        <div className="mountain-overlay"></div>
+      </div>
+
+      {/* Main Content */}
+      <div className="auth-content">
+        <div className="auth-card">
+          {/* Logo and Header */}
+          <div className="auth-header">
+            <div className="logo-container">
+              <FaMountain className="logo-icon" />
+              <h1 className="logo-text">NepGo</h1>
+            </div>
+            <h2 className="auth-title">Welcome Back</h2>
+            <p className="auth-subtitle">Sign in to continue your adventure</p>
+          </div>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
           {/* Login Form */}
           <form className="auth-form" onSubmit={handleSubmit}>
@@ -238,6 +280,7 @@ const Login = () => {
           </form>
 
           {/* Footer */}
+<<<<<<< HEAD
               <div className="auth-footer">
                 <p className="footer-text">
                   Don&apos;t have an account?{' '}
@@ -253,6 +296,21 @@ const Login = () => {
             </div>
           </div>
         </main>
+=======
+          <div className="auth-footer">
+            <p className="footer-text">
+              Don't have an account?{' '}
+              <button
+                type="button"
+                className="footer-link"
+                onClick={() => navigate("/signup")}
+              >
+                Create Account
+              </button>
+            </p>
+          </div>
+        </div>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       </div>
     </div>
   );

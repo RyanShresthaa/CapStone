@@ -81,8 +81,13 @@ const TestimonialsSection = () => {
   };
 
   return (
+<<<<<<< HEAD
     <section className="testimonials-section" id="testimonials">
       <div className="section-container testimonials-section-inner">
+=======
+    <section className="testimonials-section">
+      <div className="section-container">
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
         <motion.div
           className="section-header"
           initial={{ opacity: 0, y: 30 }}

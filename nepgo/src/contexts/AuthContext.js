@@ -1,6 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+<<<<<<< HEAD
 import toast from 'react-hot-toast';
 import api from '../services/api';
+=======
+import axios from 'axios';
+import toast from 'react-hot-toast';
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
 const AuthContext = createContext();
 
@@ -12,6 +17,45 @@ export const useAuth = () => {
   return context;
 };
 
+<<<<<<< HEAD
+=======
+// Base API URL configuration
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
+// Configure axios defaults
+axios.defaults.baseURL = API_BASE_URL;
+
+// Request interceptor to add auth token
+axios.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Response interceptor to handle token expiration
+axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      sessionStorage.removeItem('token');
+      sessionStorage.removeItem('user');
+      // Don't redirect automatically, let the component handle it
+      console.log('Token expired or invalid');
+    }
+    return Promise.reject(error);
+  }
+);
+
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +104,7 @@ export const AuthProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+<<<<<<< HEAD
   const clearAuthStorage = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -90,6 +135,44 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       const errorMessage =
         error.response?.data?.message || error.message || 'Login failed';
+=======
+  // Login function with remember me functionality
+  const login = async (email, password, rememberMe = false) => {
+    try {
+      setIsLoading(true);
+      
+      // Simple validation for the mock user
+      if (email === 'ryanshr02@gmail.com' && password === 'ryan123') {
+        const token = 'mock-jwt-token-' + Date.now();
+        const userData = {
+          email: email,
+          name: 'Ryan Shrestha',
+          firstName: 'Ryan',
+          lastName: 'Shrestha'
+        };
+        
+        // Store token and user data based on remember me preference
+        if (rememberMe) {
+          // Store in localStorage for persistent login
+          localStorage.setItem('token', token);
+          localStorage.setItem('user', JSON.stringify(userData));
+        } else {
+          // Store in sessionStorage for session-only login
+          sessionStorage.setItem('token', token);
+          sessionStorage.setItem('user', JSON.stringify(userData));
+        }
+        
+        setUser(userData);
+        setIsAuthenticated(true);
+        
+        toast.success('Login successful!');
+        return { success: true, user: userData };
+      } else {
+        throw new Error('Invalid credentials');
+      }
+    } catch (error) {
+      const errorMessage = error.message || 'Login failed';
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       toast.error(errorMessage);
       return { success: false, message: errorMessage };
     } finally {
@@ -97,6 +180,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+<<<<<<< HEAD
   const register = async (userData) => {
     try {
       setIsLoading(true);
@@ -112,6 +196,18 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       const errorMessage =
         error.response?.data?.message || error.message || 'Registration failed';
+=======
+  // Register function
+  const register = async (userData) => {
+    try {
+      setIsLoading(true);
+      
+      // Mock registration - just simulate success
+      toast.success('Registration successful! Please login.');
+      return { success: true, message: 'Registration successful' };
+    } catch (error) {
+      const errorMessage = error.message || 'Registration failed';
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       toast.error(errorMessage);
       return { success: false, message: errorMessage };
     } finally {
@@ -134,7 +230,11 @@ export const AuthProvider = ({ children }) => {
   const forgotPassword = async (email) => {
     try {
       setIsLoading(true);
+<<<<<<< HEAD
       const response = await api.post('/forgot-password', { email });
+=======
+      const response = await axios.post('/forgot-password', { email });
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       
       if (response.data.message) {
         toast.success('Password reset token generated! Check console for token.');
@@ -155,7 +255,11 @@ export const AuthProvider = ({ children }) => {
   const resetPassword = async (token, newPassword) => {
     try {
       setIsLoading(true);
+<<<<<<< HEAD
       const response = await api.post('/reset-password', { token, newPassword });
+=======
+      const response = await axios.post('/reset-password', { token, newPassword });
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       
       if (response.data.message) {
         toast.success('Password reset successful! Please login.');

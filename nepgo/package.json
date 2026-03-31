@@ -2,7 +2,10 @@
   "name": "nepgo",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
   "proxy": "http://localhost:5000",
+=======
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",

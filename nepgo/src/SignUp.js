@@ -3,6 +3,10 @@ import "./SignUp.css";
 import { FaEnvelope, FaEye, FaEyeSlash, FaSpinner, FaMountain, FaUser, FaLock, FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
+<<<<<<< HEAD
+=======
+import { useTheme } from "./contexts/ThemeContext";
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 import toast from "react-hot-toast";
 
 const SignUp = () => {
@@ -17,6 +21,10 @@ const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { register } = useAuth();
+<<<<<<< HEAD
+=======
+  const { isDarkMode } = useTheme();
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,8 +55,13 @@ const SignUp = () => {
         toast.success(`Welcome to NepGo, ${firstName}! 🎉 Your adventure begins now!`);
         
         setTimeout(() => {
+<<<<<<< HEAD
           navigate("/home");
         }, 600);
+=======
+          navigate("/login");
+        }, 1000);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       } else {
         setError(result.message || "Registration failed.");
       }
@@ -60,6 +73,7 @@ const SignUp = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="auth-page-container auth-page-container--signup">
       <div className="auth-bg-layer" aria-hidden>
         <div className="auth-bg-mesh" />
@@ -106,6 +120,35 @@ const SignUp = () => {
               </div>
 
               <form className="auth-form" onSubmit={handleSubmit}>
+=======
+    <div className="auth-page-container">
+      {/* Animated Background */}
+      <div className="auth-background">
+        <div className="floating-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+          <div className="shape shape-4"></div>
+        </div>
+        <div className="mountain-overlay"></div>
+      </div>
+
+      {/* Main Content */}
+      <div className="auth-content">
+        <div className="auth-card">
+          {/* Logo and Header */}
+          <div className="auth-header">
+            <div className="logo-container">
+              <FaMountain className="logo-icon" />
+              <h1 className="logo-text">NepGo</h1>
+            </div>
+            <h2 className="auth-title">Create Account</h2>
+            <p className="auth-subtitle">Join us and start your adventure</p>
+          </div>
+
+          {/* Sign Up Form */}
+          <form className="auth-form" onSubmit={handleSubmit}>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
             <div className="form-row">
               <div className="form-group">
                 <label className="form-label">
@@ -241,6 +284,7 @@ const SignUp = () => {
               <span className="divider-text">or</span>
             </div>
 
+<<<<<<< HEAD
                 <button type="button" className="google-btn" disabled aria-label="Google sign-in coming soon">
                   <FaGoogle className="google-icon" aria-hidden />
                   <span>Google (coming soon)</span>
@@ -262,6 +306,29 @@ const SignUp = () => {
             </div>
           </div>
         </main>
+=======
+            {/* Google Sign Up */}
+            <button type="button" className="google-btn">
+              <FaGoogle className="google-icon" />
+              <span>Continue with Google</span>
+            </button>
+          </form>
+
+          {/* Footer */}
+          <div className="auth-footer">
+            <p className="footer-text">
+              Already have an account?{' '}
+              <button
+                type="button"
+                className="footer-link"
+                onClick={() => navigate("/login")}
+              >
+                Sign In
+              </button>
+            </p>
+          </div>
+        </div>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       </div>
     </div>
   );

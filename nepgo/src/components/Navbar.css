@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @keyframes nepNavUnderline {
   from {
     width: 0;
@@ -270,3 +271,6 @@
   display: flex;
   gap: 0.5rem;
 }
+=======
+/* DEPRECATED: This file is no longer used. The new design uses a unified Topbar. Safe to remove after migration. */
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb

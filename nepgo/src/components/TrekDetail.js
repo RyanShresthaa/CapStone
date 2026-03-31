@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import MapComponent from './MapComponent';
 import WeatherComponent from './WeatherComponent';
 import { FaMapMarkerAlt, FaStar, FaRegCalendarAlt, FaHiking, FaRegListAlt, FaRegCheckCircle, FaChevronLeft, FaChevronRight, FaArrowLeft, FaHeart } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+<<<<<<< HEAD
 import { trekAPI } from '../services/api';
 import { TREK_LOCATION_PHOTOS as P } from '../data/trekLocationPhotos';
 
@@ -29,13 +34,23 @@ function normalizeApiTrek(data) {
     accommodation: data.accommodation || [],
   };
 }
+=======
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
 const TREKS = [
   {
     id: 1,
     name: 'Everest Base Camp',
     location: 'Khumbu, Nepal',
+<<<<<<< HEAD
     images: [P.everestBaseCamp, P.mountEverest, P.everestFromKalaPatthar],
+=======
+    images: [
+      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'
+    ],
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     description: 'The classic trek to the foot of the world’s highest mountain. Experience Sherpa culture, stunning Himalayan views, and the thrill of reaching Everest Base Camp.',
     rating: 4.9,
     region: 'everest',
@@ -77,7 +92,15 @@ const TREKS = [
     id: 2,
     name: 'Annapurna Circuit Trek',
     location: 'Annapurna, Nepal',
+<<<<<<< HEAD
     images: [P.thorongLa, P.annapurnaSouth, P.machhapuchhre],
+=======
+    images: [
+      'https://images.unsplash.com/photo-1464013778555-8e723c2f01f8?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'
+    ],
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     description: 'A classic trek around the Annapurna massif',
     rating: 4.8,
     region: 'Annapurna',
@@ -122,7 +145,15 @@ const TREKS = [
     id: 3,
     name: 'Langtang Valley Trek',
     location: 'Langtang, Nepal',
+<<<<<<< HEAD
     images: [P.langtangValley, P.kyanjinGompa, P.langtangValley],
+=======
+    images: [
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'
+    ],
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     description: 'A beautiful valley trek close to Kathmandu',
     rating: 4.7,
     region: 'Langtang',
@@ -158,7 +189,15 @@ const TREKS = [
     id: 4,
     name: 'Manaslu Circuit',
     location: 'Manaslu, Nepal',
+<<<<<<< HEAD
     images: [P.manasluFromTimang, P.larkePassManaslu, P.manasluFromTimang],
+=======
+    images: [
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'
+    ],
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     description: 'A remote and challenging circuit trek around the world’s eighth highest mountain, Manaslu.',
     rating: 4.6,
     region: 'manaslu',
@@ -204,13 +243,17 @@ const TrekDetail = () => {
   const navigate = useNavigate();
   const [tab, setTab] = useState('info');
   const [galleryIdx, setGalleryIdx] = useState(0);
+<<<<<<< HEAD
   const [apiTrek, setApiTrek] = useState(null);
   const [trekLoading, setTrekLoading] = useState(false);
+=======
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   const [wishlist, setWishlist] = useState(() => {
     const saved = localStorage.getItem('trekWishlist');
     return saved ? JSON.parse(saved) : [];
   });
 
+<<<<<<< HEAD
   const trekFromState = location.state?.trek;
   const fromRecommender = location.state?.fromRecommender;
 
@@ -241,13 +284,31 @@ const TrekDetail = () => {
   if (trekLoading && !trekFromState && /^[a-f0-9]{24}$/i.test(String(id)) && !trek) {
     return <div style={{ padding: 40, textAlign: 'center' }}>Loading trek…</div>;
   }
+=======
+  // Check if we have trek data from the recommender
+  const trekFromState = location.state?.trek;
+  const fromRecommender = location.state?.fromRecommender;
+  
+  // Use trek from state if available, otherwise find from TREKS array
+  const trek = trekFromState || TREKS.find(t => String(t.id) === String(id));
+
+
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
   if (!trek) return <div style={{ padding: 40, textAlign: 'center' }}>Trek not found.</div>;
 
   // Ensure trek has required properties for display
   const trekWithDefaults = {
     ...trek,
+<<<<<<< HEAD
     images: trek.images || [P.everestBaseCamp, P.mountEverest, P.thorongLa],
+=======
+    images: trek.images || [
+      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'
+    ],
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     location: trek.location || `${trek.region}, Nepal`,
     rating: trek.rating || 4.5,
     highlights: trek.highlights || [],
@@ -329,7 +390,11 @@ const TrekDetail = () => {
       
       {/* Hero Gallery */}
       <div style={{ position: 'relative', width: '100%', minHeight: 320, borderRadius: '0 0 2.5rem 2.5rem', overflow: 'hidden', marginBottom: 32, boxShadow: '0 8px 32px rgba(44,62,80,0.13)' }}>
+<<<<<<< HEAD
                  <img src={trekWithDefaults.images[galleryIdx]} alt={trekWithDefaults.name} loading="lazy" decoding="async" style={{ width: '100%', height: 340, objectFit: 'cover', filter: 'brightness(0.7)', transition: 'all 0.4s cubic-bezier(.4,0,.2,1)' }} />
+=======
+                 <img src={trekWithDefaults.images[galleryIdx]} alt={trekWithDefaults.name} style={{ width: '100%', height: 340, objectFit: 'cover', filter: 'brightness(0.7)', transition: 'all 0.4s cubic-bezier(.4,0,.2,1)' }} />
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
         <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, top: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)', zIndex: 1 }} />
                  {/* Carousel Controls */}
          {trekWithDefaults.images.length > 1 && (
@@ -370,9 +435,15 @@ const TrekDetail = () => {
         </div>
       </div>
       {/* Tabs */}
+<<<<<<< HEAD
       <div style={{ display: 'flex', gap: 18, margin: '0 1rem 2.2rem 1rem', borderBottom: '2px solid var(--border-color)' }}>
         {TABS.map(t => (
           <button key={t.id} onClick={() => setTab(t.id)} style={{ background: 'none', border: 'none', borderBottom: tab === t.id ? '3px solid var(--primary)' : '3px solid transparent', color: tab === t.id ? 'var(--primary)' : 'var(--text-light)', fontWeight: 700, fontSize: 18, padding: '0.7rem 1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, transition: 'border 0.2s, color 0.2s' }}>{t.icon} {t.label}</button>
+=======
+      <div style={{ display: 'flex', gap: 18, margin: '0 1rem 2.2rem 1rem', borderBottom: '2px solid var(--gray-200)' }}>
+        {TABS.map(t => (
+          <button key={t.id} onClick={() => setTab(t.id)} style={{ background: 'none', border: 'none', borderBottom: tab === t.id ? '3px solid var(--primary)' : '3px solid transparent', color: tab === t.id ? 'var(--primary)' : 'var(--gray-600)', fontWeight: 700, fontSize: 18, padding: '0.7rem 1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, transition: 'border 0.2s, color 0.2s' }}>{t.icon} {t.label}</button>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
         ))}
       </div>
       {/* Tab Content */}
@@ -384,7 +455,11 @@ const TrekDetail = () => {
               <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 10, color: 'var(--primary)' }}>Highlights</h2>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexWrap: 'wrap', gap: 18 }}>
                                  {trekWithDefaults.highlights && trekWithDefaults.highlights.map((h, i) => (
+<<<<<<< HEAD
                   <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, color: 'var(--text-main)', background: 'var(--surface-elevated)', borderRadius: 8, padding: '0.5rem 1.1rem', fontWeight: 600 }}><FaRegCheckCircle style={{ color: 'var(--primary)' }} /> {h}</li>
+=======
+                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, color: 'var(--gray-800)', background: 'var(--gray-100)', borderRadius: 8, padding: '0.5rem 1.1rem', fontWeight: 600 }}><FaRegCheckCircle style={{ color: 'var(--primary)' }} /> {h}</li>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                 ))}
               </ul>
             </div>
@@ -420,14 +495,22 @@ const TrekDetail = () => {
             <ol style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
               {trekWithDefaults.itinerary && trekWithDefaults.itinerary.length > 0 ? (
                 trekWithDefaults.itinerary.map((item, i) => (
+<<<<<<< HEAD
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 16, color: 'var(--text-main)' }}>
+=======
+                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 16, color: 'var(--gray-800)' }}>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                     <FaHiking style={{ color: 'var(--primary)', marginTop: '4px', flexShrink: 0 }} />
                     <div style={{ flex: 1 }}>
                       {item.split('\n').map((line, lineIndex) => (
                         <div key={lineIndex} style={{ 
                           marginBottom: lineIndex === 0 ? '8px' : '4px',
                           fontWeight: lineIndex === 0 ? '600' : '400',
+<<<<<<< HEAD
                           color: lineIndex === 0 ? 'var(--primary)' : 'var(--text-light)',
+=======
+                          color: lineIndex === 0 ? 'var(--primary)' : 'var(--gray-700)',
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                           fontSize: lineIndex === 0 ? '16px' : '14px'
                         }}>
                           {line}
@@ -437,7 +520,11 @@ const TrekDetail = () => {
                   </li>
                 ))
               ) : (
+<<<<<<< HEAD
                 <li style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>Itinerary information not available.</li>
+=======
+                <li style={{ color: 'var(--gray-500)', fontStyle: 'italic' }}>Itinerary information not available.</li>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
               )}
             </ol>
           </div>
@@ -448,17 +535,29 @@ const TrekDetail = () => {
              {trekWithDefaults.accommodation && trekWithDefaults.accommodation.length > 0 ? (
                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                  {trekWithDefaults.accommodation.map((option, i) => (
+<<<<<<< HEAD
                    <div key={i} style={{ background: 'var(--surface-elevated)', borderRadius: 12, padding: '1.5rem', border: '1px solid var(--border-color)' }}>
+=======
+                   <div key={i} style={{ background: 'var(--gray-100)', borderRadius: 12, padding: '1.5rem', border: '1px solid var(--gray-200)' }}>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--primary)', margin: 0 }}>{option.type}</h3>
                        <span style={{ background: 'var(--primary)', color: 'white', padding: '0.25rem 0.75rem', borderRadius: 20, fontSize: 14, fontWeight: 600 }}>{option.price}</span>
                      </div>
+<<<<<<< HEAD
                      <p style={{ color: 'var(--text-light)', fontSize: 15, margin: 0, lineHeight: 1.5 }}>{option.description}</p>
+=======
+                     <p style={{ color: 'var(--gray-700)', fontSize: 15, margin: 0, lineHeight: 1.5 }}>{option.description}</p>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                    </div>
                  ))}
                </div>
              ) : (
+<<<<<<< HEAD
                <span style={{ color: 'var(--text-muted)' }}>Accommodation information not available.</span>
+=======
+               <span style={{ color: 'var(--gray-500)' }}>Accommodation information not available.</span>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
              )}
            </div>
          )}
@@ -467,7 +566,11 @@ const TrekDetail = () => {
              <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 10, color: 'var(--primary)' }}>Reviews</h2>
              {trekWithDefaults.reviews && trekWithDefaults.reviews.length > 0 ? (
                trekWithDefaults.reviews.map((r, i) => (
+<<<<<<< HEAD
                  <div key={i} style={{ background: 'var(--surface-elevated)', borderRadius: 10, padding: '1rem 1.2rem', color: 'var(--text-main)', fontSize: 16, fontStyle: 'italic', display: 'flex', flexDirection: 'column', gap: 4 }}>
+=======
+                 <div key={i} style={{ background: 'var(--gray-100)', borderRadius: 10, padding: '1rem 1.2rem', color: 'var(--gray-800)', fontSize: 16, fontStyle: 'italic', display: 'flex', flexDirection: 'column', gap: 4 }}>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                      <span>"{r.text}"</span>
                      <div style={{ display: 'flex', gap: 2 }}>
@@ -480,7 +583,11 @@ const TrekDetail = () => {
                  </div>
                ))
              ) : (
+<<<<<<< HEAD
                <span style={{ color: 'var(--text-muted)' }}>No reviews yet.</span>
+=======
+               <span style={{ color: 'var(--gray-500)' }}>No reviews yet.</span>
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
              )}
            </div>
          )}

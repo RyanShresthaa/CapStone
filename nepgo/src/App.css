@@ -1,15 +1,21 @@
 @import './styles/design-system.css';
 
 .app {
+<<<<<<< HEAD
   position: relative;
   min-height: 100vh;
   background: var(--gradient-app);
   background-image: var(--gradient-app-mesh), var(--gradient-app);
   background-blend-mode: normal, normal;
+=======
+  min-height: 100vh;
+  background: linear-gradient(120deg, #e0f7fa 0%, #f7fafc 100%);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   display: flex;
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 .app--boot {
   display: flex;
   align-items: center;
@@ -72,6 +78,18 @@ textarea:focus-visible {
   padding-top: clamp(4.5rem, 12vw, 5.75rem);
 }
 
+=======
+.main-content.unified-layout {
+  flex: 1;
+  padding: 2.5rem 0 2.5rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 80px; /* Add space for fixed topbar */
+  position: relative;
+}
+
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 /* Remove/override old backgrounds, borders, and box-shadows */
 body, html {
   background: none;
@@ -95,7 +113,11 @@ body, html {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+<<<<<<< HEAD
   background: var(--gradient-landing);
+=======
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .landing-logo {
@@ -476,6 +498,20 @@ body, html {
   }
 }
 
+<<<<<<< HEAD
+=======
+/* Dark mode styles */
+.app.landing-dark, .app.landing-dark .main-content.landing-dark {
+  background: linear-gradient(120deg, #0f172a 0%, #1e293b 100%);
+  color: var(--text-white);
+}
+
+.main-content.landing-dark {
+  background: linear-gradient(120deg, #0f172a 0%, #1e293b 100%);
+  color: var(--text-white);
+}
+
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 /* Danger button variant - DISABLED: Using inline styles in Navbar component */
 /* .topbar-btn-danger {
   background: linear-gradient(135deg, #ef4444, #dc2626);
@@ -490,3 +526,27 @@ body, html {
   background: linear-gradient(135deg, #dc2626, #b91c1c);
 } */
 
+<<<<<<< HEAD
+=======
+/* App container styles */
+.app {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #e0f7fa 0%, #f7fafc 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content.unified-layout {
+  flex: 1;
+  padding: 2.5rem 0 2.5rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 80px;
+  position: relative;
+}
+
+
+
+
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb

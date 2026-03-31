@@ -1,12 +1,63 @@
 /* Modern Community Forums Design */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+<<<<<<< HEAD
 @import '../styles/design-system.css';
+=======
+
+:root {
+  --primary: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #2563eb;
+  --secondary: #10b981;
+  --accent: #f59e0b;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --white: #ffffff;
+  
+  --gradient-primary: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  --gradient-subtle: linear-gradient(135deg, #f9fafb, #f3f4f6);
+  --gradient-card: linear-gradient(145deg, #ffffff, #f9fafb);
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+}
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
 .community-forums-container {
   padding: var(--spacing-xl);
   max-width: 1400px;
   margin: 0 auto;
+<<<<<<< HEAD
   padding-top: 0.5rem;
+=======
+  padding-top: 120px;
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   min-height: 100vh;
   background: var(--gray-50);
   font-family: 'Inter', sans-serif;
@@ -14,7 +65,11 @@
 
 /* Header Section */
 .forums-header {
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   border-radius: 20px;
   padding: var(--spacing-3xl);
   margin-bottom: var(--spacing-2xl);
@@ -31,7 +86,11 @@
   left: 0;
   right: 0;
   height: 4px;
+<<<<<<< HEAD
   background: var(--gradient-btn);
+=======
+  background: var(--gradient-primary);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .header-content {
@@ -44,7 +103,11 @@
 .header-text h1 {
   font-family: 'Poppins', sans-serif;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
+<<<<<<< HEAD
   background: var(--gradient-btn);
+=======
+  background: var(--gradient-primary);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,7 +200,11 @@
   position: relative;
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   border-radius: 16px;
   box-shadow: var(--shadow-md);
   border: 2px solid var(--gray-200);
@@ -216,7 +283,11 @@
 }
 
 .filter-btn {
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   color: var(--gray-600);
   padding: var(--spacing-sm) var(--spacing-md);
   border: 2px solid var(--gray-200);
@@ -244,7 +315,11 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   border: 2px solid var(--gray-200);
   border-radius: 16px;
   padding: var(--spacing-sm) var(--spacing-md);
@@ -285,7 +360,11 @@
 .category-btn {
   padding: var(--spacing-xs) var(--spacing-md);
   border: 2px solid var(--gray-200);
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   border-radius: 24px;
   cursor: pointer;
   display: flex;
@@ -328,7 +407,11 @@
 }
 
 .post-card {
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   padding: var(--spacing-xl);
   border-radius: 20px;
   box-shadow: var(--shadow-md);
@@ -668,7 +751,11 @@
 }
 
 .comment-item:hover {
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   box-shadow: var(--shadow-sm);
 }
 
@@ -702,7 +789,11 @@
 
 /* Comment Form */
 .comment-form {
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   padding: var(--spacing-md);
   border-radius: 16px;
   border: 2px solid var(--gray-200);
@@ -794,7 +885,11 @@
 }
 
 .sidebar-card {
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   padding: var(--spacing-xl);
   border-radius: 20px;
   box-shadow: var(--shadow-md);
@@ -811,7 +906,11 @@
   left: 0;
   right: 0;
   height: 4px;
+<<<<<<< HEAD
   background: var(--gradient-btn);
+=======
+  background: var(--gradient-primary);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .sidebar-card:hover {
@@ -927,7 +1026,11 @@
 .no-results {
   text-align: center;
   padding: var(--spacing-3xl);
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   border-radius: 20px;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--gray-200);
@@ -1043,7 +1146,11 @@
 
 /* Auth Card */
 .auth-card {
+<<<<<<< HEAD
   background: var(--gradient-btn);
+=======
+  background: var(--gradient-primary);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   color: white;
   text-align: center;
 }
@@ -1095,7 +1202,11 @@
 }
 
 .post-modal {
+<<<<<<< HEAD
   background: var(--surface);
+=======
+  background: var(--white);
+>>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   border-radius: 20px;
   max-width: 800px;
   width: 100%;
