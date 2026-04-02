@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "cd nepgo && npm install",
+  "buildCommand": "cd nepgo && npm run build",
+  "outputDirectory": "nepgo/build",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
