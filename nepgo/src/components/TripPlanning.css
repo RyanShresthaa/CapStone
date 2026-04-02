@@ -1,20 +1,5 @@
 /* Trip Planning Component Styles - Modern Landscape Layout */
-<<<<<<< HEAD
 @import '../styles/design-system.css';
-
-=======
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-.trip-planning-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  min-height: 100vh;
-<<<<<<< HEAD
-  background: var(--background);
-  color: var(--text-main);
-=======
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 /* Enhanced Progress Bar */
@@ -24,18 +9,10 @@
   align-items: center;
   margin-bottom: 3rem;
   padding: 2rem;
-<<<<<<< HEAD
   background: var(--surface);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-=======
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  position: relative;
+  border: 1px solid var(--border-color);  position: relative;
   overflow: hidden;
 }
 
@@ -46,12 +23,7 @@
   left: 0;
   right: 0;
   height: 3px;
-<<<<<<< HEAD
-  background: var(--gray-200);
-=======
-  background: #e2e8f0;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  transform: translateY(-50%);
+  background: var(--gray-200);  transform: translateY(-50%);
   z-index: 1;
 }
 
@@ -61,12 +33,7 @@
   top: 50%;
   left: 0;
   height: 3px;
-<<<<<<< HEAD
-  background: var(--gradient-btn);
-=======
-  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  transform: translateY(-50%);
+  background: var(--gradient-btn);  transform: translateY(-50%);
   z-index: 2;
   transition: width 0.6s ease;
   width: calc((100% / 3) * var(--progress, 0));
@@ -1399,12 +1366,7 @@
 .connector-line {
   width: 2px;
   height: 100%;
-<<<<<<< HEAD
-  background: var(--border-color);
-=======
-  background: #e2e8f0;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  margin-top: 2rem;
+  background: var(--border-color);  margin-top: 2rem;
 }
 
 .step-content {

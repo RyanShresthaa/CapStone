@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import { FaRoute, FaClock, FaThermometerHalf, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-=======
-import { FaRoute, FaMapMarkerAlt, FaClock, FaThermometerHalf, FaChevronDown, FaChevronUp, FaArrowRight } from 'react-icons/fa';
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-import './TrekItinerary.css';
+import { FaRoute, FaClock, FaThermometerHalf, FaChevronDown, FaChevronUp } from 'react-icons/fa';import './TrekItinerary.css';
 
 const TrekItinerary = ({ checkpoints, trekName, compact = false }) => {
   const [isExpanded, setIsExpanded] = useState(false);

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaMountain, FaClock, FaDollarSign, FaStar, FaMapMarkerAlt, FaThermometerHalf, FaUsers, FaLeaf, FaHeart, FaEye, FaCalendarAlt } from 'react-icons/fa';
@@ -9,38 +8,7 @@ import { calculateTrekScore, buildDiverseRecommendations } from '../utils/trekRe
 import { TREK_LOCATION_PHOTOS as P } from '../data/trekLocationPhotos';
 import './TrekRecommender.css';
 
-const TREK_FALLBACK_DATABASE = [
-=======
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaMountain, FaClock, FaDollarSign, FaStar, FaMapMarkerAlt, FaThermometerHalf, FaUsers, FaLeaf, FaHeart, FaEye } from 'react-icons/fa';
-import toast from 'react-hot-toast';
-import './TrekRecommender.css';
-
-const TrekRecommender = () => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    experience: '',
-    budget: '',
-    timeAvailable: '',
-    preferredRegion: '',
-    groupSize: '',
-    season: ''
-  });
-
-  const [recommendations, setRecommendations] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [showResults, setShowResults] = useState(false);
-  const [wishlist, setWishlist] = useState(() => {
-    const saved = localStorage.getItem('trekWishlist');
-    return saved ? JSON.parse(saved) : [];
-  });
-  const [showWishlist, setShowWishlist] = useState(false);
-
-  // Comprehensive trek database with real data
-  const trekDatabase = [
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-    {
+const TREK_FALLBACK_DATABASE = [    {
       id: 1,
       name: "Everest Base Camp Trek",
       region: "Khumbu",
@@ -54,12 +22,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 8,
       bestSeason: "Spring/Autumn",
       groupSize: "2-12 people",
-<<<<<<< HEAD
-      image: P.everestBaseCamp,
-=======
-      image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Everest Base Camp",
+      image: P.everestBaseCamp,      weatherLocation: "Everest Base Camp",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
         "Day 2: Kathmandu → Lukla (2,860m) → Phakding (2,610m)\n   • Early morning flight to Lukla (30 min)\n   • Trek to Phakding (3-4 hours)\n   • Overnight: Phakding tea house",
@@ -100,12 +63,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 7,
       bestSeason: "Spring/Autumn",
       groupSize: "2-15 people",
-<<<<<<< HEAD
-      image: P.thorongLa,
-=======
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Annapurna",
+      image: P.thorongLa,      weatherLocation: "Annapurna",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
         "Day 2: Kathmandu → Besisahar (760m) → Bhulbhule (840m)\n   • Drive to Besisahar (6-7 hours)\n   • Short trek to Bhulbhule (1 hour)\n   • Overnight: Bhulbhule tea house",
@@ -150,12 +108,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 9,
       bestSeason: "Spring/Autumn/Winter",
       groupSize: "2-10 people",
-<<<<<<< HEAD
-      image: P.langtangValley,
-=======
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Langtang",
+      image: P.langtangValley,      weatherLocation: "Langtang",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
         "Day 2: Kathmandu → Syabrubesi (1,460m)\n   • Drive to Syabrubesi (7-8 hours)\n   • Scenic mountain road journey\n   • Overnight: Syabrubesi tea house",
@@ -191,12 +144,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 8,
       bestSeason: "Spring/Autumn",
       groupSize: "2-8 people",
-<<<<<<< HEAD
-      image: P.manasluFromTimang,
-=======
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Manaslu",
+      image: P.manasluFromTimang,      weatherLocation: "Manaslu",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
         "Day 2: Kathmandu → Soti Khola (700m)\n   • Drive to Soti Khola (8-9 hours)\n   • Scenic journey through Gorkha\n   • Overnight: Soti Khola tea house",
@@ -239,12 +187,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 6,
       bestSeason: "All year",
       groupSize: "2-15 people",
-<<<<<<< HEAD
-      image: P.poonHill,
-=======
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Pokhara",
+      image: P.poonHill,      weatherLocation: "Pokhara",
       itinerary: [
         "Day 1: Kathmandu → Pokhara (820m) - Arrival & Preparation\n   • Drive or fly to Pokhara\n   • Trek briefing and gear check\n   • Overnight: Pokhara hotel",
         "Day 2: Pokhara → Nayapul → Ulleri (1,960m)\n   • Drive to Nayapul (1.5 hours)\n   • Trek to Ulleri via Tikhedhunga (5-6 hours)\n   • Overnight: Ulleri tea house",
@@ -277,12 +220,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 7,
       bestSeason: "Spring/Autumn",
       groupSize: "2-10 people",
-<<<<<<< HEAD
-      image: P.loManthang,
-=======
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Mustang",
+      image: P.loManthang,      weatherLocation: "Mustang",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
         "Day 2: Kathmandu → Pokhara → Jomsom (2,720m)\n   • Fly to Pokhara, then to Jomsom\n   • Acclimatization in Jomsom\n   • Overnight: Jomsom tea house",
@@ -322,12 +260,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 8,
       bestSeason: "Spring/Autumn",
       groupSize: "2-8 people",
-<<<<<<< HEAD
-      image: P.machhapuchhre,
-=======
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Pokhara",
+      image: P.machhapuchhre,      weatherLocation: "Pokhara",
       itinerary: [
         "Day 1: Kathmandu → Pokhara (820m) - Arrival & Preparation\n   • Drive or fly to Pokhara\n   • Trek briefing and gear check\n   • Overnight: Pokhara hotel",
         "Day 2: Pokhara → Kande → Forest Camp (2,600m)\n   • Drive to Kande (1 hour)\n   • Trek through rhododendron forests (5-6 hours)\n   • Overnight: Forest Camp tea house",
@@ -361,12 +294,7 @@ const TrekRecommender = () => {
       sustainabilityScore: 9,
       bestSeason: "Spring/Autumn",
       groupSize: "2-6 people",
-<<<<<<< HEAD
-      image: P.kangchenjunga,
-=======
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500",
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      weatherLocation: "Taplejung",
+      image: P.kangchenjunga,      weatherLocation: "Taplejung",
       itinerary: [
         "Day 1: Kathmandu (1,400m) - Arrival & Preparation\n   • Arrive in Kathmandu, hotel check-in\n   • Trek briefing and gear check\n   • Overnight: Kathmandu hotel",
         "Day 2: Kathmandu → Taplejung (1,440m)\n   • Drive to Taplejung (12-14 hours)\n   • Scenic journey through eastern Nepal\n   • Overnight: Taplejung tea house",
@@ -401,7 +329,6 @@ const TrekRecommender = () => {
     }
   ];
 
-<<<<<<< HEAD
 function normalizeTrekFromApi(row) {
   if (!row) return null;
   const image = row.image || (Array.isArray(row.images) && row.images[0]) || '';
@@ -443,197 +370,6 @@ const TrekRecommender = () => {
   const [showResults, setShowResults] = useState(false);
   const [wishlist, setWishlist] = useState([]);
   const [showWishlist, setShowWishlist] = useState(false);
-
-=======
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  const experienceLevels = [
-    { value: 'Beginner', label: 'Beginner (First time trekker)' },
-    { value: 'Moderate', label: 'Moderate (Some trekking experience)' },
-    { value: 'Experienced', label: 'Experienced (Regular trekker)' }
-  ];
-
-  const budgetRanges = [
-    { value: 'Low', label: 'Low ($500-1000)', range: '500-1000' },
-    { value: 'Medium', label: 'Medium ($1000-2000)', range: '1000-2000' },
-    { value: 'High', label: 'High ($2000+)', range: '2000+' }
-  ];
-
-  const timeOptions = [
-    { value: '1-5 days', label: '1-5 days' },
-    { value: '6-10 days', label: '6-10 days' },
-    { value: '11-15 days', label: '11-15 days' },
-    { value: '16+ days', label: '16+ days' }
-  ];
-
-  const regions = [
-    { value: 'Any', label: 'Any Region' },
-    { value: 'Khumbu', label: 'Khumbu (Everest Region)' },
-    { value: 'Annapurna', label: 'Annapurna Region' },
-    { value: 'Langtang', label: 'Langtang Region' },
-    { value: 'Manaslu', label: 'Manaslu Region' },
-    { value: 'Mustang', label: 'Mustang Region' }
-  ];
-
-  const seasons = [
-    { value: 'Spring', label: 'Spring (Mar-May)' },
-    { value: 'Summer', label: 'Summer (Jun-Aug)' },
-    { value: 'Autumn', label: 'Autumn (Sep-Nov)' },
-    { value: 'Winter', label: 'Winter (Dec-Feb)' }
-  ];
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-<<<<<<< HEAD
-  const getRecommendations = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const scoredTreks = trekDatabase.map((trek) => ({
-        ...trek,
-        score: calculateTrekScore(trek, formData),
-      }));
-      const diverseRecommendations = buildDiverseRecommendations(scoredTreks, {
-        minScore: 25,
-        maxCount: 3,
-      });
-      setRecommendations(diverseRecommendations);
-      setShowResults(true);
-      setIsLoading(false);
-    }, 800);
-=======
-  const calculateTrekScore = (trek, preferences) => {
-    let score = 0;
-    
-    // Experience match (35% weight) - More nuanced matching
-    if (preferences.experience === trek.minExperience) {
-      score += 35;
-    } else if (preferences.experience === 'Experienced') {
-      if (trek.minExperience === 'Moderate') score += 30;
-      else if (trek.minExperience === 'Beginner') score += 25;
-      else score += 20;
-    } else if (preferences.experience === 'Moderate') {
-      if (trek.minExperience === 'Beginner') score += 30;
-      else if (trek.minExperience === 'Experienced') score += 25;
-      else score += 20;
-    } else { // Beginner
-      if (trek.minExperience === 'Beginner') score += 35;
-      else if (trek.minExperience === 'Moderate') score += 20;
-      else score += 10; // Experienced treks are not suitable for beginners
-    }
-
-    // Budget match (25% weight) - More precise matching
-    if (preferences.budget === trek.budget) {
-      score += 25;
-    } else if (preferences.budget === 'High') {
-      if (trek.budget === 'Medium') score += 20;
-      else if (trek.budget === 'Low') score += 15;
-      else score += 25; // High budget matches high budget
-    } else if (preferences.budget === 'Medium') {
-      if (trek.budget === 'Low') score += 20;
-      else if (trek.budget === 'High') score += 15;
-      else score += 25; // Medium budget matches medium budget
-    } else { // Low budget
-      if (trek.budget === 'Low') score += 25;
-      else if (trek.budget === 'Medium') score += 15;
-      else score += 5; // High budget treks are not suitable for low budget
-    }
-
-    // Time match (20% weight) - More flexible matching
-    const trekDays = parseInt(trek.duration);
-    const preferredDays = preferences.timeAvailable.split('-')[1] || preferences.timeAvailable.split('-')[0];
-    const maxPreferredDays = parseInt(preferredDays);
-    
-    if (trekDays <= maxPreferredDays) {
-      score += 20;
-    } else if (trekDays <= maxPreferredDays + 3) {
-      score += 15; // Slightly over but still manageable
-    } else if (trekDays <= maxPreferredDays + 7) {
-      score += 10; // Over but possible with time adjustment
-    } else {
-      score += 5; // Too long for available time
-    }
-
-    // Region preference (15% weight) - Stronger regional preference
-    if (preferences.preferredRegion === 'Any') {
-      score += 15;
-    } else if (preferences.preferredRegion === trek.region) {
-      score += 15;
-    } else {
-      score += 5; // Different region but still possible
-    }
-
-    // Season match (5% weight)
-    if (preferences.season && trek.bestSeason.includes(preferences.season)) {
-      score += 5;
-    } else if (preferences.season && trek.bestSeason === 'All year') {
-      score += 5;
-    } else {
-      score += 2; // Not ideal season but still possible
-    }
-
-    return score;
-  };
-
-  const getRecommendations = () => {
-    setIsLoading(true);
-    
-    // Simulate API call delay
-    setTimeout(() => {
-      const scoredTreks = trekDatabase.map(trek => ({
-        ...trek,
-        score: calculateTrekScore(trek, formData)
-      }));
-
-      // Filter out low-scoring treks and ensure diversity
-      const filteredTreks = scoredTreks
-        .filter(trek => trek.score >= 25) // Lower threshold for more options
-        .sort((a, b) => b.score - a.score);
-
-      // Ensure diversity by selecting different regions and difficulties
-      const diverseRecommendations = [];
-      const selectedRegions = new Set();
-      const selectedDifficulties = new Set();
-
-      // First, add the highest scoring trek
-      if (filteredTreks.length > 0) {
-        diverseRecommendations.push(filteredTreks[0]);
-        selectedRegions.add(filteredTreks[0].region);
-        selectedDifficulties.add(filteredTreks[0].difficulty);
-      }
-
-      // Add diverse options
-      for (let i = 1; i < filteredTreks.length && diverseRecommendations.length < 3; i++) {
-        const trek = filteredTreks[i];
-        
-        // Prefer treks from different regions and difficulties
-        const isDifferentRegion = !selectedRegions.has(trek.region);
-        const isDifferentDifficulty = !selectedDifficulties.has(trek.difficulty);
-        
-        if (isDifferentRegion || isDifferentDifficulty) {
-          diverseRecommendations.push(trek);
-          selectedRegions.add(trek.region);
-          selectedDifficulties.add(trek.difficulty);
-        }
-      }
-
-      // If we don't have 3 diverse options, add more from the top scores
-      for (let i = 1; i < filteredTreks.length && diverseRecommendations.length < 3; i++) {
-        const trek = filteredTreks[i];
-        if (!diverseRecommendations.find(r => r.id === trek.id)) {
-          diverseRecommendations.push(trek);
-        }
-      }
-
-      setRecommendations(diverseRecommendations);
-      setShowResults(true);
-      setIsLoading(false);
-    }, 1500);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   };
 
   const handleSubmit = (e) => {
@@ -654,7 +390,6 @@ const TrekRecommender = () => {
     setRecommendations([]);
   };
 
-<<<<<<< HEAD
   const difficultyClass = (d) =>
     ({ Easy: 'easy', Moderate: 'moderate', Challenging: 'challenging' }[d] || 'moderate');
 
@@ -716,31 +451,6 @@ const TrekRecommender = () => {
       localStorage.setItem('trekWishlist', JSON.stringify(wishlist));
     }
   }, [wishlist, isAuthenticated]);
-=======
-  const getDifficultyColor = (difficulty) => {
-    switch (difficulty) {
-      case 'Easy': return '#10b981';
-      case 'Moderate': return '#f59e0b';
-      case 'Challenging': return '#ef4444';
-      default: return '#6b7280';
-    }
-  };
-
-  const getBudgetColor = (budget) => {
-    switch (budget) {
-      case 'Low': return '#10b981';
-      case 'Medium': return '#f59e0b';
-      case 'High': return '#ef4444';
-      default: return '#6b7280';
-    }
-  };
-
-  // Save wishlist to localStorage whenever it changes
-  React.useEffect(() => {
-    localStorage.setItem('trekWishlist', JSON.stringify(wishlist));
-  }, [wishlist]);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-
   const handleViewDetails = (trek) => {
     // Navigate to trek detail page
     navigate(`/treks/${trek.id}`, { 
@@ -751,7 +461,6 @@ const TrekRecommender = () => {
     });
   };
 
-<<<<<<< HEAD
   const handleAddToWishlist = async (trek) => {
     const isInWishlist = wishlist.some((item) => item.id === trek.id);
 
@@ -776,22 +485,7 @@ const TrekRecommender = () => {
           return;
         }
       }
-      setWishlist((list) => [...list, { ...trek, addedAt: new Date().toISOString() }]);
-=======
-  const handleAddToWishlist = (trek) => {
-    const isInWishlist = wishlist.some(item => item.id === trek.id);
-    
-    if (isInWishlist) {
-      // Remove from wishlist
-      const updatedWishlist = wishlist.filter(item => item.id !== trek.id);
-      setWishlist(updatedWishlist);
-      toast.success(`${trek.name} removed from wishlist!`);
-    } else {
-      // Add to wishlist
-      const updatedWishlist = [...wishlist, { ...trek, addedAt: new Date().toISOString() }];
-      setWishlist(updatedWishlist);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      toast.success(`${trek.name} added to wishlist!`);
+      setWishlist((list) => [...list, { ...trek, addedAt: new Date().toISOString() }]);      toast.success(`${trek.name} added to wishlist!`);
     }
   };
 
@@ -838,41 +532,20 @@ const TrekRecommender = () => {
                 <div key={trek.id} className="trek-card wishlist-card">
                   <div className="trek-card-header">
                     <div className="trek-image">
-<<<<<<< HEAD
-                      <img src={trek.image} alt={trek.name} loading="lazy" decoding="async" />
-=======
-                      <img src={trek.image} alt={trek.name} />
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                      <div className="wishlist-badge">
+                      <img src={trek.image} alt={trek.name} loading="lazy" decoding="async" />                      <div className="wishlist-badge">
                         <FaHeart />
                       </div>
                     </div>
                     <div className="trek-badges">
-<<<<<<< HEAD
                       <span className={`badge badge-difficulty badge-difficulty--${difficultyClass(trek.difficulty)}`}>
                         {trek.difficulty}
                       </span>
                       <span className={`badge badge-budget badge-budget--${budgetClass(trek.budget)}`}>
-                        {trek.budget} budget
-=======
-                      <span 
-                        className="badge difficulty"
-                        style={{ backgroundColor: getDifficultyColor(trek.difficulty) }}
-                      >
-                        {trek.difficulty}
-                      </span>
-                      <span 
-                        className="badge budget"
-                        style={{ backgroundColor: getBudgetColor(trek.budget) }}
-                      >
-                        {trek.budget}
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                      </span>
+                        {trek.budget} budget                      </span>
                     </div>
                   </div>
 
                   <div className="trek-card-content">
-<<<<<<< HEAD
                     <p className="trek-region-eyebrow">
                       <FaMapMarkerAlt aria-hidden />
                       {trek.region} region, Nepal
@@ -899,29 +572,7 @@ const TrekRecommender = () => {
                       <div className="trek-stat-tile" role="listitem">
                         <FaCalendarAlt className="trek-stat-icon" aria-hidden />
                         <span className="trek-stat-label">Best season</span>
-                        <span className="trek-stat-value">{trek.bestSeason}</span>
-=======
-                    <h3 className="trek-name">{trek.name}</h3>
-                    <p className="trek-description">{trek.description}</p>
-                    
-                    <div className="trek-details">
-                      <div className="detail-item">
-                        <FaMapMarkerAlt />
-                        <span>{trek.region}</span>
-                      </div>
-                      <div className="detail-item">
-                        <FaClock />
-                        <span>{trek.duration}</span>
-                      </div>
-                      <div className="detail-item">
-                        <FaMountain />
-                        <span>{trek.altitude}m</span>
-                      </div>
-                      <div className="detail-item">
-                        <FaUsers />
-                        <span>{trek.groupSize}</span>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                      </div>
+                        <span className="trek-stat-value">{trek.bestSeason}</span>                      </div>
                     </div>
 
                     <div className="trek-actions">
@@ -948,7 +599,6 @@ const TrekRecommender = () => {
         ) : !showResults ? (
           /* Recommendation Form */
           <div className="recommender-form-container">
-<<<<<<< HEAD
             {treksLoading ? (
               <p className="trek-recommender-banner" role="status">
                 Loading trek catalog from the server…
@@ -961,150 +611,7 @@ const TrekRecommender = () => {
                   Retry
                 </button>
               </p>
-            ) : null}
-=======
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-            <form onSubmit={handleSubmit} className="recommender-form">
-              <div className="form-grid">
-                {/* Experience Level */}
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaStar className="label-icon" />
-                    Trekking Experience
-                  </label>
-                  <select
-                    name="experience"
-                    value={formData.experience}
-                    onChange={handleInputChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="">Select your experience level</option>
-                    {experienceLevels.map(level => (
-                      <option key={level.value} value={level.value}>
-                        {level.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Budget */}
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaDollarSign className="label-icon" />
-                    Budget Range
-                  </label>
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleInputChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="">Select your budget</option>
-                    {budgetRanges.map(budget => (
-                      <option key={budget.value} value={budget.value}>
-                        {budget.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Time Available */}
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaClock className="label-icon" />
-                    Time Available
-                  </label>
-                  <select
-                    name="timeAvailable"
-                    value={formData.timeAvailable}
-                    onChange={handleInputChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="">Select available time</option>
-                    {timeOptions.map(time => (
-                      <option key={time.value} value={time.value}>
-                        {time.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Preferred Region */}
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaMapMarkerAlt className="label-icon" />
-                    Preferred Region
-                  </label>
-                  <select
-                    name="preferredRegion"
-                    value={formData.preferredRegion}
-                    onChange={handleInputChange}
-                    className="form-select"
-                  >
-                    <option value="">Select preferred region (optional)</option>
-                    {regions.map(region => (
-                      <option key={region.value} value={region.value}>
-                        {region.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Group Size */}
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaUsers className="label-icon" />
-                    Group Size
-                  </label>
-                  <select
-                    name="groupSize"
-                    value={formData.groupSize}
-                    onChange={handleInputChange}
-                    className="form-select"
-                  >
-                    <option value="">Select group size (optional)</option>
-                    <option value="Solo">Solo (1 person)</option>
-                    <option value="Small">Small (2-4 people)</option>
-                    <option value="Medium">Medium (5-8 people)</option>
-                    <option value="Large">Large (9+ people)</option>
-                  </select>
-                </div>
-
-                {/* Season */}
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaThermometerHalf className="label-icon" />
-                    Preferred Season
-                  </label>
-                  <select
-                    name="season"
-                    value={formData.season}
-                    onChange={handleInputChange}
-                    className="form-select"
-                  >
-                    <option value="">Select preferred season (optional)</option>
-                    {seasons.map(season => (
-                      <option key={season.value} value={season.value}>
-                        {season.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-actions">
-                <button
-                  type="submit"
-                  className="btn-primary"
-<<<<<<< HEAD
-                  disabled={isLoading || treksLoading || trekDatabase.length === 0}
-=======
-                  disabled={isLoading}
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                >
+            ) : null}                >
                   {isLoading ? 'Finding Treks...' : 'Get Recommendations'}
                 </button>
               </div>
@@ -1126,42 +633,21 @@ const TrekRecommender = () => {
                 <div key={trek.id} className="trek-card">
                   <div className="trek-card-header">
                     <div className="trek-image">
-<<<<<<< HEAD
-                      <img src={trek.image} alt={trek.name} loading="lazy" decoding="async" />
-=======
-                      <img src={trek.image} alt={trek.name} />
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                      <div className="trek-score">
+                      <img src={trek.image} alt={trek.name} loading="lazy" decoding="async" />                      <div className="trek-score">
                         <span>{trek.score}%</span>
                         <small>Match</small>
                       </div>
                     </div>
                     <div className="trek-badges">
-<<<<<<< HEAD
                       <span className={`badge badge-difficulty badge-difficulty--${difficultyClass(trek.difficulty)}`}>
                         {trek.difficulty}
                       </span>
                       <span className={`badge badge-budget badge-budget--${budgetClass(trek.budget)}`}>
-                        {trek.budget} budget
-=======
-                      <span 
-                        className="badge difficulty"
-                        style={{ backgroundColor: getDifficultyColor(trek.difficulty) }}
-                      >
-                        {trek.difficulty}
-                      </span>
-                      <span 
-                        className="badge budget"
-                        style={{ backgroundColor: getBudgetColor(trek.budget) }}
-                      >
-                        {trek.budget}
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                      </span>
+                        {trek.budget} budget                      </span>
                     </div>
                   </div>
 
                   <div className="trek-card-content">
-<<<<<<< HEAD
                     <p className="trek-region-eyebrow">
                       <FaMapMarkerAlt aria-hidden />
                       {trek.region} region, Nepal
@@ -1190,46 +676,17 @@ const TrekRecommender = () => {
                       <div className="trek-stat-tile" role="listitem">
                         <FaCalendarAlt className="trek-stat-icon" aria-hidden />
                         <span className="trek-stat-label">Best season</span>
-                        <span className="trek-stat-value">{trek.bestSeason}</span>
-=======
-                    <h3 className="trek-name">{trek.name}</h3>
-                    <p className="trek-description">{trek.description}</p>
-                    
-                    <div className="trek-details">
-                      <div className="detail-item">
-                        <FaMapMarkerAlt />
-                        <span>{trek.region}</span>
-                      </div>
-                      <div className="detail-item">
-                        <FaClock />
-                        <span>{trek.duration}</span>
-                      </div>
-                      <div className="detail-item">
-                        <FaMountain />
-                        <span>{trek.altitude}m</span>
-                      </div>
-                      <div className="detail-item">
-                        <FaUsers />
-                        <span>{trek.groupSize}</span>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                      </div>
+                        <span className="trek-stat-value">{trek.bestSeason}</span>                      </div>
                     </div>
 
                     <div className="trek-highlights">
-<<<<<<< HEAD
                       <h4 className="trek-section-heading">Trip highlights</h4>
-                      <ul className="trek-highlights-list">
-=======
-                      <h4>Highlights:</h4>
-                      <ul>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                        {trek.highlights.map((highlight, idx) => (
+                      <ul className="trek-highlights-list">                        {trek.highlights.map((highlight, idx) => (
                           <li key={idx}>{highlight}</li>
                         ))}
                       </ul>
                     </div>
 
-<<<<<<< HEAD
                     <div className="trek-sustainability">
                       <FaLeaf aria-hidden />
                       <div className="trek-sustainability-text">
@@ -1253,29 +710,7 @@ const TrekRecommender = () => {
                       </div>
                     </div>
 
-                    <div className="trek-actions">
-=======
-                                         <div className="trek-sustainability">
-                       <FaLeaf />
-                       <span>Sustainability Score: {trek.sustainabilityScore}/10</span>
-                     </div>
-
-                     <div className="trek-accommodation">
-                       <h4>Accommodation Options:</h4>
-                       <div className="accommodation-options">
-                         {trek.accommodation.map((option, idx) => (
-                           <div key={idx} className="accommodation-option">
-                             <div className="accommodation-type">{option.type}</div>
-                             <div className="accommodation-description">{option.description}</div>
-                             <div className="accommodation-price">{option.price}</div>
-                           </div>
-                         ))}
-                       </div>
-                     </div>
-
-                                         <div className="trek-actions">
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-                       <button 
+                    <div className="trek-actions">                       <button 
                          className="btn-primary"
                          onClick={() => handleViewDetails(trek)}
                        >

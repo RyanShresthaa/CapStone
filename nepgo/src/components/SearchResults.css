@@ -1,5 +1,4 @@
 /* Search Results Page Styles */
-<<<<<<< HEAD
 @import '../styles/design-system.css';
 
 .search-results-container {
@@ -7,15 +6,7 @@
   background: var(--background);
   color: var(--text-main);
   padding: 2rem 0;
-  padding-top: 0.5rem;
-=======
-.search-results-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  padding: 2rem 0;
-  padding-top: 100px;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-}
+  padding-top: 0.5rem;}
 
 /* Header */
 .search-header {
@@ -53,27 +44,15 @@
 .search-info h1 {
   font-size: 2.5rem;
   font-weight: 800;
-<<<<<<< HEAD
   margin-bottom: 0.5rem;
-  background: var(--gradient-btn);
-=======
-  color: #1e293b;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #10b981 100%);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  -webkit-background-clip: text;
+  background: var(--gradient-btn);  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .search-info p {
   font-size: 1.1rem;
-<<<<<<< HEAD
-  color: var(--text-secondary);
-=======
-  color: #64748b;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  font-weight: 500;
+  color: var(--text-secondary);  font-weight: 500;
 }
 
 /* Search Bar */

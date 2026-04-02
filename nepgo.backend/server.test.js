@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const path = require('path');
 const request = require('supertest');
 const mongoose = require('mongoose');
@@ -22,52 +21,25 @@ beforeAll(async () => {
 afterAll(async () => {
   if (mongoose.connection.readyState === 1) {
     await mongoose.disconnect();
-  }
-=======
-const request = require('supertest');
-const mongoose = require('mongoose');
-require('dotenv').config();
-
-let app;
-
-beforeAll(async () => {
-  // Import the app after setting env
-  app = require('./server');
-  // Optionally connect to test DB
-  // await mongoose.connect(process.env.MONGO_URI);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-});
+  }});
 
 describe('Weather API', () => {
   it('should return weather for Kathmandu', async () => {
     const res = await request(app).get('/api/weather?location=Kathmandu');
     expect(res.statusCode).toBe(200);
     expect(res.body.weather).toBeDefined();
-<<<<<<< HEAD
-    expect(String(res.body.weather.name)).toMatch(/Kathmandu/i);
-=======
-    expect(res.body.weather.name).toMatch(/Kathmandu/i);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  });
+    expect(String(res.body.weather.name)).toMatch(/Kathmandu/i);  });
 });
 
 describe('Feedback API', () => {
   it('should accept feedback', async () => {
-<<<<<<< HEAD
     if (!mongoConnected) return;
-    const res = await request(app).post('/api/feedback').send({ rating: 5, comment: 'Great app!' });
-=======
-    const res = await request(app)
-      .post('/api/feedback')
-      .send({ rating: 5, comment: 'Great app!' });
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-    expect(res.statusCode).toBe(201);
+    const res = await request(app).post('/api/feedback').send({ rating: 5, comment: 'Great app!' });    expect(res.statusCode).toBe(201);
     expect(res.body.message).toMatch(/submitted/i);
   });
 });
 
 describe('Recommendations API', () => {
-<<<<<<< HEAD
   it('should return recommendations without auth', async () => {
     if (!mongoConnected) return;
     const res = await request(app).get('/api/recommendations');
@@ -117,14 +89,3 @@ describe('Admin trek import', () => {
     expect(res.statusCode).toBe(503);
   });
 });
-=======
-  it('should require auth', async () => {
-    const res = await request(app).get('/api/recommendations');
-    expect(res.statusCode).toBe(401);
-  });
-});
-
-afterAll(async () => {
-  // await mongoose.disconnect();
-}); 
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb

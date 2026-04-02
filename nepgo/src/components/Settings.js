@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import { FaCog, FaUser, FaBell, FaLock, FaShieldAlt, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
-=======
-import { FaCog, FaUser, FaBell, FaLock, FaGlobe, FaPalette, FaShieldAlt, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-import { useAuth } from '../contexts/AuthContext';
+import { FaCog, FaUser, FaBell, FaLock, FaShieldAlt, FaQuestionCircle, FaSignOutAlt } from 'react-icons/fa';import { useAuth } from '../contexts/AuthContext';
 import './Settings.css';
 
 const Settings = () => {

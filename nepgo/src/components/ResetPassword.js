@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
-=======
-import { useParams, useNavigate } from 'react-router-dom';
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-import {
+import { useSearchParams, useParams, useNavigate } from 'react-router-dom';import {
   Container,
   Paper,
   TextField,
@@ -17,7 +12,6 @@ import {
   IconButton
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-<<<<<<< HEAD
 import api from '../services/api';
 
 const paperSx = {
@@ -31,14 +25,7 @@ const paperSx = {
 const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const { token: pathToken } = useParams();
-  const token = searchParams.get('token') || pathToken || '';
-=======
-import axios from 'axios';
-
-const ResetPassword = () => {
-  const { token } = useParams();
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  const navigate = useNavigate();
+  const token = searchParams.get('token') || pathToken || '';  const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
     password: '',
@@ -56,45 +43,18 @@ const ResetPassword = () => {
     // Verify token validity on component mount
     const verifyToken = async () => {
       try {
-<<<<<<< HEAD
         await api.get(`/api/auth/verify-reset-token/${encodeURIComponent(token)}`);
         setTokenValid(true);
-      } catch {
-=======
-        await axios.get(`/api/auth/verify-reset-token/${token}`);
-        setTokenValid(true);
-      } catch (error) {
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-        setTokenValid(false);
+      } catch {        setTokenValid(false);
         setError('Invalid or expired reset token. Please request a new password reset.');
       }
     };
 
     if (token) {
       verifyToken();
-<<<<<<< HEAD
     } else {
       setTokenValid(false);
-      setError('Missing reset token. Open the link from your email or paste the token in the URL (?token=…).');
-=======
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-    }
-  }, [token]);
-
-  const validateForm = () => {
-    const newErrors = {};
-
-    // Password validation
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters long';
-<<<<<<< HEAD
-=======
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
-      newErrors.password = 'Password must contain at least one lowercase letter, one uppercase letter, and one number';
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-    }
+      setError('Missing reset token. Open the link from your email or paste the token in the URL (?token=…).');    }
 
     // Confirm password validation
     if (!formData.confirmPassword) {
@@ -135,16 +95,9 @@ const ResetPassword = () => {
     setError('');
 
     try {
-<<<<<<< HEAD
       const response = await api.post('/reset-password', {
         token,
-        newPassword: formData.password,
-=======
-      const response = await axios.post('/api/auth/reset-password', {
-        token,
-        password: formData.password
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-      });
+        newPassword: formData.password,      });
 
       setMessage(response.data.message || 'Password reset successful! You can now log in with your new password.');
       
@@ -175,12 +128,7 @@ const ResetPassword = () => {
   if (tokenValid === null) {
     return (
       <Container maxWidth="sm" sx={{ mt: 8 }}>
-<<<<<<< HEAD
-        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>
-=======
-        <Paper elevation={3} sx={{ p: 4, textAlign: 'center' }}>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-          <CircularProgress />
+        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>          <CircularProgress />
           <Typography variant="body1" sx={{ mt: 2 }}>
             Verifying reset token...
           </Typography>
@@ -192,12 +140,7 @@ const ResetPassword = () => {
   if (tokenValid === false) {
     return (
       <Container maxWidth="sm" sx={{ mt: 8 }}>
-<<<<<<< HEAD
-        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>
-=======
-        <Paper elevation={3} sx={{ p: 4, textAlign: 'center' }}>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-          <Typography variant="h4" component="h1" gutterBottom color="error">
+        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>          <Typography variant="h4" component="h1" gutterBottom color="error">
             Invalid Token
           </Typography>
           <Alert severity="error" sx={{ mb: 3 }}>
@@ -223,12 +166,7 @@ const ResetPassword = () => {
 
   return (
     <Container maxWidth="sm" sx={{ mt: 8 }}>
-<<<<<<< HEAD
-      <Paper elevation={0} sx={paperSx}>
-=======
-      <Paper elevation={3} sx={{ p: 4 }}>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-        <Typography variant="h4" component="h1" gutterBottom textAlign="center">
+      <Paper elevation={0} sx={paperSx}>        <Typography variant="h4" component="h1" gutterBottom textAlign="center">
           Reset Password
         </Typography>
         

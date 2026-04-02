@@ -1,7 +1,6 @@
 @import url('./styles/design-system.css');
 
 .dashboard-container {
-<<<<<<< HEAD
   --font-family-primary: var(--font-main);
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
@@ -30,28 +29,14 @@
   background: var(--background);
   padding: 0;
   font-family: var(--font-main);
-  color: var(--text-main);
-=======
-  min-height: 100vh;
-  background: linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%);
-  padding: 0;
-  font-family: var(--font-family-primary);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-}
+  color: var(--text-main);}
 
 /* Header Section */
 .dashboard-header {
-<<<<<<< HEAD
   background: var(--surface);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
-=======
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
-  padding: var(--spacing-8) var(--spacing-12);
+  border-bottom: 1px solid var(--border-color);  padding: var(--spacing-8) var(--spacing-12);
   position: sticky;
   top: 0;
   z-index: 100;
