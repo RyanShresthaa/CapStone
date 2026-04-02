@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import { FaComments, FaReply, FaThumbsUp, FaSearch, FaPlus, FaMapMarkerAlt, FaCalendarAlt, FaEye, FaTimes, FaFilter, FaSort, FaBookmark, FaShare, FaUser, FaStar, FaClock, FaUsers, FaChartLine } from 'react-icons/fa';
 import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
@@ -149,15 +148,6 @@ const FALLBACK_FORUM_POSTS = [
 
 const CommunityForums = () => {
   const { isAuthenticated } = useAuth();
-=======
-import { FaComments, FaReply, FaThumbsUp, FaSearch, FaPlus, FaMapMarkerAlt, FaCalendarAlt, FaEye, FaTimes, FaFilter, FaSort, FaBookmark, FaShare, FaEllipsisH, FaUser, FaHeart, FaStar, FaFlag, FaEdit, FaTrash, FaCheck, FaClock, FaUsers, FaChartLine } from 'react-icons/fa';
-import { useAuth } from '../contexts/AuthContext';
-import toast from 'react-hot-toast';
-import './CommunityForums.css';
-
-const CommunityForums = () => {
-  const { user, isAuthenticated } = useAuth();
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('latest');
@@ -172,10 +162,6 @@ const CommunityForums = () => {
   const [newComments, setNewComments] = useState({});
   const [showFilters, setShowFilters] = useState(false);
   const [posts, setPosts] = useState([]);
-<<<<<<< HEAD
-=======
-  const [isLoading, setIsLoading] = useState(false);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   const [selectedPost, setSelectedPost] = useState(null);
   const [showPostModal, setShowPostModal] = useState(false);
 
@@ -188,7 +174,6 @@ const CommunityForums = () => {
     { id: 'general-discussion', name: 'General Discussion', icon: FaComments, color: '#ec4899', count: 298 }
   ];
 
-<<<<<<< HEAD
   useEffect(() => {
     let cancelled = false;
     communityAPI
@@ -213,113 +198,6 @@ const CommunityForums = () => {
     return () => {
       cancelled = true;
     };
-=======
-  const initialPosts = [
-    {
-      id: 1,
-      title: 'Everest Base Camp Trek - March 2025 Experience',
-      content: 'Just completed my EBC trek and wanted to share some insights about the March conditions. The weather was surprisingly stable with clear skies most days. The trail was busy but manageable. Key highlights: amazing views from Kala Patthar, great tea house at Gorak Shep, and the sense of achievement at base camp was indescribable. Would highly recommend going in March!',
-      author: 'MountainExplorer',
-      authorAvatar: '🧗‍♂️',
-      authorLevel: 'Expert',
-      category: 'trip-reports',
-      date: '2025-01-08',
-      replies: 12,
-      likes: 24,
-      views: 156,
-      tags: ['EBC', 'March', 'Weather', 'Experience'],
-      isPinned: false,
-      isFeatured: false,
-      isVerified: true,
-      difficulty: 'Challenging',
-      duration: '14 days',
-      rating: 4.8
-    },
-    {
-      id: 2,
-      title: 'Best Sleeping Bag for High Altitude Trekking?',
-      content: 'Looking for recommendations for a sleeping bag that can handle -20°C temperatures. I\'m planning a winter trek to Annapurna Base Camp and need something reliable. Budget is around $300-500. Currently considering the North Face Inferno and Mountain Hardwear Phantom. Any experiences with these or other recommendations?',
-      author: 'GearSeeker',
-      authorAvatar: '🎒',
-      authorLevel: 'Intermediate',
-      category: 'gear-advice',
-      date: '2025-01-07',
-      replies: 8,
-      likes: 15,
-      views: 89,
-      tags: ['Gear', 'Sleeping Bag', 'Cold Weather', 'ABC'],
-      isPinned: false,
-      isFeatured: false,
-      isVerified: false,
-      difficulty: 'Moderate',
-      duration: '7 days',
-      rating: 4.2
-    },
-    {
-      id: 3,
-      title: 'Annapurna Circuit Route Changes 2025',
-      content: 'Has anyone noticed the recent changes to the Annapurna Circuit route? Some sections seem to have been rerouted due to road construction. I\'m planning to do the circuit in April and want to make sure I have the most up-to-date information. Any recent trekkers who can share their experience?',
-      author: 'RouteGuru',
-      authorAvatar: '🗺️',
-      authorLevel: 'Expert',
-      category: 'route-planning',
-      date: '2025-01-06',
-      replies: 18,
-      likes: 32,
-      views: 234,
-      tags: ['Annapurna', 'Route Changes', 'Planning', 'April'],
-      isPinned: false,
-      isFeatured: false,
-      isVerified: true,
-      difficulty: 'Challenging',
-      duration: '21 days',
-      rating: 4.6
-    },
-    {
-      id: 4,
-      title: 'Weather Forecast Accuracy in the Himalayas',
-      content: 'How reliable are weather forecasts for high-altitude trekking? I\'ve been checking multiple apps and they all show different predictions for the same dates. Share your experiences with weather forecasting tools and any tips for planning around weather conditions.',
-      author: 'WeatherWatcher',
-      authorAvatar: '🌤️',
-      authorLevel: 'Advanced',
-      category: 'weather-conditions',
-      date: '2025-01-05',
-      replies: 6,
-      likes: 18,
-      views: 123,
-      tags: ['Weather', 'Forecast', 'Planning', 'Himalayas'],
-      isPinned: false,
-      isFeatured: false,
-      isVerified: false,
-      difficulty: 'Easy',
-      duration: '5 days',
-      rating: 4.0
-    },
-    {
-      id: 5,
-      title: 'First Time Trekking in Nepal - Tips Welcome!',
-      content: 'Planning my first trek to Nepal next month. I\'m a complete beginner and would love any advice on preparation, what to pack, and what to expect. I\'m thinking of starting with a shorter trek like Poon Hill to get acclimated. Any recommendations for first-timers?',
-      author: 'NewTrekker',
-      authorAvatar: '🥾',
-      authorLevel: 'Beginner',
-      category: 'general-discussion',
-      date: '2025-01-04',
-      replies: 25,
-      likes: 41,
-      views: 298,
-      tags: ['Beginner', 'First Time', 'Advice', 'Poon Hill'],
-      isPinned: false,
-      isFeatured: false,
-      isVerified: false,
-      difficulty: 'Easy',
-      duration: '4 days',
-      rating: 4.5
-    }
-  ];
-
-  useEffect(() => {
-    setPosts(initialPosts);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   }, []);
 
   const filteredAndSortedPosts = posts
@@ -347,17 +225,12 @@ const CommunityForums = () => {
       }
     });
 
-<<<<<<< HEAD
   const handleNewPost = async () => {
-=======
-  const handleNewPost = () => {
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     if (!isAuthenticated) {
       toast.error('Please log in to create a post');
       return;
     }
 
-<<<<<<< HEAD
     if (!newPostTitle.trim() || !newPostContent.trim()) {
       toast.error('Please fill in all required fields');
       return;
@@ -372,57 +245,22 @@ const CommunityForums = () => {
       const ui = mapApiPostToUi(data);
       setPosts((prev) => [ui, ...prev]);
       setComments((prev) => ({ ...prev, [ui.id]: [] }));
-=======
-    if (newPostTitle.trim() && newPostContent.trim()) {
-      const newPost = {
-        id: Date.now(),
-        title: newPostTitle,
-        content: newPostContent,
-        category: newPostCategory,
-        author: user?.firstName || user?.name || 'Anonymous',
-        authorAvatar: '👤',
-        authorLevel: 'Member',
-        date: new Date().toISOString().split('T')[0],
-        replies: 0,
-        likes: 0,
-        views: 0,
-        tags: [],
-        isPinned: false,
-        isFeatured: false,
-        isVerified: false,
-        difficulty: 'Not specified',
-        duration: 'Not specified',
-        rating: 0
-      };
-
-      setPosts(prev => [newPost, ...prev]);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       setNewPostTitle('');
       setNewPostContent('');
       setNewPostCategory('general-discussion');
       setShowNewPostForm(false);
       toast.success('Post created successfully!');
-<<<<<<< HEAD
     } catch {
       toast.error('Could not create post. Is the server running?');
     }
   };
 
   const handleLike = async (postId) => {
-=======
-    } else {
-      toast.error('Please fill in all required fields');
-    }
-  };
-
-  const handleLike = (postId) => {
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     if (!isAuthenticated) {
       toast.error('Please log in to like posts');
       return;
     }
 
-<<<<<<< HEAD
     try {
       const { data } = await communityAPI.likePost(postId);
       const ui = mapApiPostToUi(data);
@@ -436,19 +274,6 @@ const CommunityForums = () => {
     } catch {
       toast.error('Could not like post');
     }
-=======
-    setLikedPosts(prev => {
-      const newLikedPosts = new Set(prev);
-      if (newLikedPosts.has(postId)) {
-        newLikedPosts.delete(postId);
-        toast.success('Post unliked');
-      } else {
-        newLikedPosts.add(postId);
-        toast.success('Post liked!');
-      }
-      return newLikedPosts;
-    });
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   };
 
   const handleBookmark = (postId) => {
@@ -487,7 +312,6 @@ const CommunityForums = () => {
     });
   };
 
-<<<<<<< HEAD
   const handleSubmitComment = async (postId) => {
     const commentText = newComments[postId]?.trim();
     if (!commentText) return;
@@ -513,37 +337,6 @@ const CommunityForums = () => {
       toast.success('Comment added successfully!');
     } catch {
       toast.error('Could not add comment');
-=======
-  const handleSubmitComment = (postId) => {
-    const commentText = newComments[postId]?.trim();
-    if (commentText) {
-      const newComment = {
-        id: Date.now(),
-        text: commentText,
-        author: user?.firstName || user?.name || 'Anonymous',
-        authorAvatar: '👤',
-        date: new Date().toISOString().split('T')[0],
-        likes: 0
-      };
-
-      setComments(prev => ({
-        ...prev,
-        [postId]: [...(prev[postId] || []), newComment]
-      }));
-
-      setNewComments(prev => ({
-        ...prev,
-        [postId]: ''
-      }));
-
-      setCommentForms(prev => {
-        const newCommentForms = new Set(prev);
-        newCommentForms.delete(postId);
-        return newCommentForms;
-      });
-
-      toast.success('Comment added successfully!');
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     }
   };
 
@@ -572,15 +365,7 @@ const CommunityForums = () => {
     setShowPostModal(true);
   };
 
-<<<<<<< HEAD
   const getPostLikes = (post) => post.likes ?? 0;
-=======
-  const getPostLikes = (post) => {
-    const baseLikes = post.likes;
-    const isLiked = likedPosts.has(post.id);
-    return isLiked ? baseLikes + 1 : baseLikes;
-  };
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
   const getPostComments = (post) => {
     const baseReplies = post.replies;
@@ -1127,7 +912,6 @@ const CommunityForums = () => {
                 <span>{selectedPost.views} views</span>
                 <span>{getPostLikes(selectedPost)} likes</span>
               </div>
-<<<<<<< HEAD
             </div>
           </div>
         </div>
@@ -1137,6 +921,3 @@ const CommunityForums = () => {
 };
 
 export default CommunityForums;
-=======
-  
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb

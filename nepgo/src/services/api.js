@@ -16,7 +16,8 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token =
-      localStorage.getItem('token') || sessionStorage.getItem('token');    if (token) {
+      localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
@@ -36,6 +37,20 @@ function isAuthRequestUrl(url) {
     u.includes('/reset-password')
   );
 }
+
+// Response interceptor to handle errors
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      const url = error.config?.url || '';
+      if (!isAuthRequestUrl(url)) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user');
+        window.location.href = '/login';
+      }
     }
     return Promise.reject(error);
   }
@@ -134,7 +149,8 @@ export const weatherAPI = {
 export const communityAPI = {
   // Create forum post
   createPost: (title, content, category) =>
-    api.post('/api/forum/posts', { title, content, category }),  
+    api.post('/api/forum/posts', { title, content, category }),
+  
   // Get all forum posts
   getPosts: () => api.get('/api/forum/posts'),
   

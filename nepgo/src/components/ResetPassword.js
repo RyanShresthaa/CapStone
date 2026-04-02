@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, useParams, useNavigate } from 'react-router-dom';import {
+import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
+import {
   Container,
   Paper,
   TextField,
@@ -25,7 +26,8 @@ const paperSx = {
 const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const { token: pathToken } = useParams();
-  const token = searchParams.get('token') || pathToken || '';  const navigate = useNavigate();
+  const token = searchParams.get('token') || pathToken || '';
+  const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
     password: '',
@@ -45,7 +47,8 @@ const ResetPassword = () => {
       try {
         await api.get(`/api/auth/verify-reset-token/${encodeURIComponent(token)}`);
         setTokenValid(true);
-      } catch {        setTokenValid(false);
+      } catch {
+        setTokenValid(false);
         setError('Invalid or expired reset token. Please request a new password reset.');
       }
     };
@@ -54,7 +57,19 @@ const ResetPassword = () => {
       verifyToken();
     } else {
       setTokenValid(false);
-      setError('Missing reset token. Open the link from your email or paste the token in the URL (?token=…).');    }
+      setError('Missing reset token. Open the link from your email or paste the token in the URL (?token=…).');
+    }
+  }, [token]);
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Password validation
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters long';
+    }
 
     // Confirm password validation
     if (!formData.confirmPassword) {
@@ -97,7 +112,8 @@ const ResetPassword = () => {
     try {
       const response = await api.post('/reset-password', {
         token,
-        newPassword: formData.password,      });
+        newPassword: formData.password,
+      });
 
       setMessage(response.data.message || 'Password reset successful! You can now log in with your new password.');
       
@@ -128,7 +144,8 @@ const ResetPassword = () => {
   if (tokenValid === null) {
     return (
       <Container maxWidth="sm" sx={{ mt: 8 }}>
-        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>          <CircularProgress />
+        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>
+          <CircularProgress />
           <Typography variant="body1" sx={{ mt: 2 }}>
             Verifying reset token...
           </Typography>
@@ -140,7 +157,8 @@ const ResetPassword = () => {
   if (tokenValid === false) {
     return (
       <Container maxWidth="sm" sx={{ mt: 8 }}>
-        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>          <Typography variant="h4" component="h1" gutterBottom color="error">
+        <Paper elevation={0} sx={{ ...paperSx, textAlign: 'center' }}>
+          <Typography variant="h4" component="h1" gutterBottom color="error">
             Invalid Token
           </Typography>
           <Alert severity="error" sx={{ mb: 3 }}>
@@ -166,7 +184,8 @@ const ResetPassword = () => {
 
   return (
     <Container maxWidth="sm" sx={{ mt: 8 }}>
-      <Paper elevation={0} sx={paperSx}>        <Typography variant="h4" component="h1" gutterBottom textAlign="center">
+      <Paper elevation={0} sx={paperSx}>
+        <Typography variant="h4" component="h1" gutterBottom textAlign="center">
           Reset Password
         </Typography>
         

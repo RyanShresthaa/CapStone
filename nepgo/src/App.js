@@ -1,13 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { ThemeProvider } from './contexts/ThemeContext';
-=======
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate, useLocation } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { DataProvider } from './contexts/DataContext';
 import Landing from './Landing';
@@ -38,12 +32,13 @@ import SearchResults from './components/SearchResults';
 import AuthTest from './components/AuthTest';
 import Topbar from './components/Navbar';
 
-// Enhanced navbar component with glassmorphic design
 function AppRoutes() {
   const { user, isLoading } = useAuth();
   const location = useLocation();
-<<<<<<< HEAD
+  const { isDarkMode } = useTheme();
   const isHomePage = location.pathname === '/home';
+  const isLanding = location.pathname === '/';
+  const landingDark = isLanding && isDarkMode;
 
   if (isLoading) {
     return (
@@ -54,7 +49,7 @@ function AppRoutes() {
   }
 
   return (
-    <div className="app">
+    <div className={`app${landingDark ? ' landing-dark' : ''}`}>
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
@@ -62,21 +57,8 @@ function AppRoutes() {
       <main
         id="main-content"
         tabIndex={-1}
-        className={`main-content unified-layout${isHomePage ? ' main-content--home' : ''}`}
+        className={`main-content unified-layout${isHomePage ? ' main-content--home' : ''}${landingDark ? ' landing-dark' : ''}`}
       >
-=======
-  const { isDarkMode } = useTheme();
-  const isLanding = location.pathname === '/';
-  
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  
-  return (
-    <div className={`app${isLanding && isDarkMode ? ' landing-dark' : ''}`}>
-      <Topbar />
-      <main className={`main-content unified-layout${isLanding && isDarkMode ? ' landing-dark' : ''}`}> 
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
         <Routes>
           <Route path="/" element={user ? <Navigate to="/home" /> : <Landing />} />
           <Route path="/about" element={<About />} />
@@ -86,10 +68,7 @@ function AppRoutes() {
           <Route path="/login" element={user ? <Navigate to="/home" /> : <Login />} />
           <Route path="/signup" element={user ? <Navigate to="/home" /> : <SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-<<<<<<< HEAD
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-=======
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/home" element={
             <PrivateRoute>

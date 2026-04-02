@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import MapComponent from './MapComponent';
 import WeatherComponent from './WeatherComponent';
 import { FaMapMarkerAlt, FaStar, FaRegCalendarAlt, FaHiking, FaRegListAlt, FaRegCheckCircle, FaChevronLeft, FaChevronRight, FaArrowLeft, FaHeart } from 'react-icons/fa';
@@ -27,7 +28,15 @@ function normalizeApiTrek(data) {
     })),
     accommodation: data.accommodation || [],
   };
-}    description: 'The classic trek to the foot of the world’s highest mountain. Experience Sherpa culture, stunning Himalayan views, and the thrill of reaching Everest Base Camp.',
+}
+
+const TREKS = [
+  {
+    id: 1,
+    name: 'Everest Base Camp',
+    location: 'Khumbu, Nepal',
+    images: [P.everestBaseCamp, P.mountEverest, P.everestFromKalaPatthar],
+    description: 'The classic trek to the foot of the world’s highest mountain. Experience Sherpa culture, stunning Himalayan views, and the thrill of reaching Everest Base Camp.',
     rating: 4.9,
     region: 'everest',
     map: { lat: 27.9881, lng: 86.9250 },
@@ -68,7 +77,8 @@ function normalizeApiTrek(data) {
     id: 2,
     name: 'Annapurna Circuit Trek',
     location: 'Annapurna, Nepal',
-    images: [P.thorongLa, P.annapurnaSouth, P.machhapuchhre],    description: 'A classic trek around the Annapurna massif',
+    images: [P.thorongLa, P.annapurnaSouth, P.machhapuchhre],
+    description: 'A classic trek around the Annapurna massif',
     rating: 4.8,
     region: 'Annapurna',
     map: { lat: 28.5983, lng: 83.9311 },
@@ -112,7 +122,8 @@ function normalizeApiTrek(data) {
     id: 3,
     name: 'Langtang Valley Trek',
     location: 'Langtang, Nepal',
-    images: [P.langtangValley, P.kyanjinGompa, P.langtangValley],    description: 'A beautiful valley trek close to Kathmandu',
+    images: [P.langtangValley, P.kyanjinGompa, P.langtangValley],
+    description: 'A beautiful valley trek close to Kathmandu',
     rating: 4.7,
     region: 'Langtang',
     map: { lat: 28.2116, lng: 85.5567 },
@@ -147,7 +158,8 @@ function normalizeApiTrek(data) {
     id: 4,
     name: 'Manaslu Circuit',
     location: 'Manaslu, Nepal',
-    images: [P.manasluFromTimang, P.larkePassManaslu, P.manasluFromTimang],    description: 'A remote and challenging circuit trek around the world’s eighth highest mountain, Manaslu.',
+    images: [P.manasluFromTimang, P.larkePassManaslu, P.manasluFromTimang],
+    description: 'A remote and challenging circuit trek around the world’s eighth highest mountain, Manaslu.',
     rating: 4.6,
     region: 'manaslu',
     map: { lat: 28.5495, lng: 84.5612 },
@@ -194,12 +206,49 @@ const TrekDetail = () => {
   const [galleryIdx, setGalleryIdx] = useState(0);
   const [apiTrek, setApiTrek] = useState(null);
   const [trekLoading, setTrekLoading] = useState(false);
+  const [wishlist, setWishlist] = useState(() => {
+    const saved = localStorage.getItem('trekWishlist');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  const trekFromState = location.state?.trek;
+  const fromRecommender = location.state?.fromRecommender;
+
+  useEffect(() => {
+    if (trekFromState || !id) return;
+    const isMongoId = /^[a-f0-9]{24}$/i.test(String(id));
+    if (!isMongoId) return;
+    let cancelled = false;
+    setTrekLoading(true);
+    trekAPI
+      .getTrekById(id)
+      .then(({ data }) => {
+        if (!cancelled) setApiTrek(normalizeApiTrek(data));
+      })
+      .catch(() => {
+        if (!cancelled) setApiTrek(null);
+      })
+      .finally(() => {
+        if (!cancelled) setTrekLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [id, trekFromState]);
+
+  const trek = trekFromState || apiTrek || TREKS.find((t) => String(t.id) === String(id));
+
+  if (trekLoading && !trekFromState && /^[a-f0-9]{24}$/i.test(String(id)) && !trek) {
+    return <div style={{ padding: 40, textAlign: 'center' }}>Loading trek…</div>;
+  }
+
   if (!trek) return <div style={{ padding: 40, textAlign: 'center' }}>Trek not found.</div>;
 
   // Ensure trek has required properties for display
   const trekWithDefaults = {
     ...trek,
-    images: trek.images || [P.everestBaseCamp, P.mountEverest, P.thorongLa],    location: trek.location || `${trek.region}, Nepal`,
+    images: trek.images || [P.everestBaseCamp, P.mountEverest, P.thorongLa],
+    location: trek.location || `${trek.region}, Nepal`,
     rating: trek.rating || 4.5,
     highlights: trek.highlights || [],
     itinerary: trek.itinerary || [
@@ -280,7 +329,8 @@ const TrekDetail = () => {
       
       {/* Hero Gallery */}
       <div style={{ position: 'relative', width: '100%', minHeight: 320, borderRadius: '0 0 2.5rem 2.5rem', overflow: 'hidden', marginBottom: 32, boxShadow: '0 8px 32px rgba(44,62,80,0.13)' }}>
-                 <img src={trekWithDefaults.images[galleryIdx]} alt={trekWithDefaults.name} loading="lazy" decoding="async" style={{ width: '100%', height: 340, objectFit: 'cover', filter: 'brightness(0.7)', transition: 'all 0.4s cubic-bezier(.4,0,.2,1)' }} />        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, top: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)', zIndex: 1 }} />
+                 <img src={trekWithDefaults.images[galleryIdx]} alt={trekWithDefaults.name} loading="lazy" decoding="async" style={{ width: '100%', height: 340, objectFit: 'cover', filter: 'brightness(0.7)', transition: 'all 0.4s cubic-bezier(.4,0,.2,1)' }} />
+        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, top: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)', zIndex: 1 }} />
                  {/* Carousel Controls */}
          {trekWithDefaults.images.length > 1 && (
           <>
@@ -322,7 +372,8 @@ const TrekDetail = () => {
       {/* Tabs */}
       <div style={{ display: 'flex', gap: 18, margin: '0 1rem 2.2rem 1rem', borderBottom: '2px solid var(--border-color)' }}>
         {TABS.map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)} style={{ background: 'none', border: 'none', borderBottom: tab === t.id ? '3px solid var(--primary)' : '3px solid transparent', color: tab === t.id ? 'var(--primary)' : 'var(--text-light)', fontWeight: 700, fontSize: 18, padding: '0.7rem 1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, transition: 'border 0.2s, color 0.2s' }}>{t.icon} {t.label}</button>        ))}
+          <button key={t.id} onClick={() => setTab(t.id)} style={{ background: 'none', border: 'none', borderBottom: tab === t.id ? '3px solid var(--primary)' : '3px solid transparent', color: tab === t.id ? 'var(--primary)' : 'var(--text-light)', fontWeight: 700, fontSize: 18, padding: '0.7rem 1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, transition: 'border 0.2s, color 0.2s' }}>{t.icon} {t.label}</button>
+        ))}
       </div>
       {/* Tab Content */}
       <div style={{ margin: '0 1rem', minHeight: 220 }}>
@@ -333,7 +384,8 @@ const TrekDetail = () => {
               <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 10, color: 'var(--primary)' }}>Highlights</h2>
               <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexWrap: 'wrap', gap: 18 }}>
                                  {trekWithDefaults.highlights && trekWithDefaults.highlights.map((h, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, color: 'var(--text-main)', background: 'var(--surface-elevated)', borderRadius: 8, padding: '0.5rem 1.1rem', fontWeight: 600 }}><FaRegCheckCircle style={{ color: 'var(--primary)' }} /> {h}</li>                ))}
+                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, color: 'var(--text-main)', background: 'var(--surface-elevated)', borderRadius: 8, padding: '0.5rem 1.1rem', fontWeight: 600 }}><FaRegCheckCircle style={{ color: 'var(--primary)' }} /> {h}</li>
+                ))}
               </ul>
             </div>
             {/* Map & Weather */}
@@ -368,13 +420,15 @@ const TrekDetail = () => {
             <ol style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
               {trekWithDefaults.itinerary && trekWithDefaults.itinerary.length > 0 ? (
                 trekWithDefaults.itinerary.map((item, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 16, color: 'var(--text-main)' }}>                    <FaHiking style={{ color: 'var(--primary)', marginTop: '4px', flexShrink: 0 }} />
+                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 16, color: 'var(--text-main)' }}>
+                    <FaHiking style={{ color: 'var(--primary)', marginTop: '4px', flexShrink: 0 }} />
                     <div style={{ flex: 1 }}>
                       {item.split('\n').map((line, lineIndex) => (
                         <div key={lineIndex} style={{ 
                           marginBottom: lineIndex === 0 ? '8px' : '4px',
                           fontWeight: lineIndex === 0 ? '600' : '400',
-                          color: lineIndex === 0 ? 'var(--primary)' : 'var(--text-light)',                          fontSize: lineIndex === 0 ? '16px' : '14px'
+                          color: lineIndex === 0 ? 'var(--primary)' : 'var(--text-light)',
+                          fontSize: lineIndex === 0 ? '16px' : '14px'
                         }}>
                           {line}
                         </div>
@@ -383,7 +437,8 @@ const TrekDetail = () => {
                   </li>
                 ))
               ) : (
-                <li style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>Itinerary information not available.</li>              )}
+                <li style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>Itinerary information not available.</li>
+              )}
             </ol>
           </div>
         )}
@@ -393,15 +448,18 @@ const TrekDetail = () => {
              {trekWithDefaults.accommodation && trekWithDefaults.accommodation.length > 0 ? (
                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                  {trekWithDefaults.accommodation.map((option, i) => (
-                   <div key={i} style={{ background: 'var(--surface-elevated)', borderRadius: 12, padding: '1.5rem', border: '1px solid var(--border-color)' }}>                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                   <div key={i} style={{ background: 'var(--surface-elevated)', borderRadius: 12, padding: '1.5rem', border: '1px solid var(--border-color)' }}>
+                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
                        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--primary)', margin: 0 }}>{option.type}</h3>
                        <span style={{ background: 'var(--primary)', color: 'white', padding: '0.25rem 0.75rem', borderRadius: 20, fontSize: 14, fontWeight: 600 }}>{option.price}</span>
                      </div>
-                     <p style={{ color: 'var(--text-light)', fontSize: 15, margin: 0, lineHeight: 1.5 }}>{option.description}</p>                   </div>
+                     <p style={{ color: 'var(--text-light)', fontSize: 15, margin: 0, lineHeight: 1.5 }}>{option.description}</p>
+                   </div>
                  ))}
                </div>
              ) : (
-               <span style={{ color: 'var(--text-muted)' }}>Accommodation information not available.</span>             )}
+               <span style={{ color: 'var(--text-muted)' }}>Accommodation information not available.</span>
+             )}
            </div>
          )}
          {tab === 'reviews' && (
@@ -409,7 +467,8 @@ const TrekDetail = () => {
              <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 10, color: 'var(--primary)' }}>Reviews</h2>
              {trekWithDefaults.reviews && trekWithDefaults.reviews.length > 0 ? (
                trekWithDefaults.reviews.map((r, i) => (
-                 <div key={i} style={{ background: 'var(--surface-elevated)', borderRadius: 10, padding: '1rem 1.2rem', color: 'var(--text-main)', fontSize: 16, fontStyle: 'italic', display: 'flex', flexDirection: 'column', gap: 4 }}>                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                 <div key={i} style={{ background: 'var(--surface-elevated)', borderRadius: 10, padding: '1rem 1.2rem', color: 'var(--text-main)', fontSize: 16, fontStyle: 'italic', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                      <span>"{r.text}"</span>
                      <div style={{ display: 'flex', gap: 2 }}>
                        {[...Array(5)].map((_, star) => (
@@ -421,7 +480,8 @@ const TrekDetail = () => {
                  </div>
                ))
              ) : (
-               <span style={{ color: 'var(--text-muted)' }}>No reviews yet.</span>             )}
+               <span style={{ color: 'var(--text-muted)' }}>No reviews yet.</span>
+             )}
            </div>
          )}
       </div>

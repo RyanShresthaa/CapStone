@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import '../styles/design-system.css';
 
 .trek-recommender {
@@ -7,19 +6,11 @@
   color: var(--text-main);
   padding: 2rem 1rem;
   font-family: var(--font-main);
-=======
-.trek-recommender {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
-  padding: 2rem 1rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .recommender-container {
   max-width: 1400px;
   margin: 0 auto;
-<<<<<<< HEAD
   background: var(--surface);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -27,17 +18,6 @@
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   border: 1px solid var(--border-color);
-=======
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  border-radius: 32px;
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.08),
-    0 10px 25px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.3);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   position: relative;
 }
 
@@ -48,34 +28,17 @@
   left: 0;
   right: 0;
   height: 6px;
-<<<<<<< HEAD
   background: var(--gradient-btn);
   border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
-=======
-  background: linear-gradient(90deg, 
-    #3b82f6 0%, 
-    #8b5cf6 25%, 
-    #06b6d4 50%, 
-    #10b981 75%, 
-    #f59e0b 100%);
-  border-radius: 32px 32px 0 0;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   animation: shimmer 4s ease-in-out infinite;
 }
 
 /* Header Styles */
 .recommender-header {
-<<<<<<< HEAD
   background: linear-gradient(145deg, #1e1b4b 0%, #312e81 45%, #4c1d95 100%);
   padding: 4rem 3rem;
   text-align: center;
   color: #f8fafc;
-=======
-  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-  padding: 4rem 3rem;
-  text-align: center;
-  color: white;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   position: relative;
   overflow: hidden;
 }
@@ -192,12 +155,8 @@
 /* Form Styles */
 .recommender-form-container {
   padding: 4rem 3rem;
-<<<<<<< HEAD
   background: var(--surface-elevated);
   border-top: 1px solid var(--border-color);
-=======
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .recommender-form {
@@ -221,7 +180,6 @@
 
 .form-label {
   font-weight: 700;
-<<<<<<< HEAD
   color: var(--text-main);
   display: flex;
   align-items: center;
@@ -247,58 +205,16 @@
   box-shadow: var(--shadow-sm);
   font-weight: 500;
   color: var(--text-main);
-=======
-  color: #1e293b;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.label-icon {
-  color: #3b82f6;
-  font-size: 1.3rem;
-  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
-}
-
-.form-select {
-  padding: 1.25rem 1.5rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 16px;
-  font-size: 1.1rem;
-  background: white;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  font-weight: 500;
-  color: #374151;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .form-select:focus {
   outline: none;
-<<<<<<< HEAD
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--ring-primary);
 }
 
 .form-select:hover {
   border-color: color-mix(in srgb, var(--primary) 45%, var(--border-color));
-=======
-  border-color: #3b82f6;
-  box-shadow: 
-    0 0 0 4px rgba(59, 130, 246, 0.1),
-    0 8px 25px rgba(59, 130, 246, 0.15);
-  transform: translateY(-2px);
-}
-
-.form-select:hover {
-  border-color: #3b82f6;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .form-actions {
@@ -306,7 +222,6 @@
   padding-top: 2rem;
 }
 
-<<<<<<< HEAD
 .trek-recommender .btn-primary {
   background: var(--gradient-btn);
   color: #fff;
@@ -320,33 +235,11 @@
   box-shadow: var(--shadow-md);
   min-width: 240px;
   letter-spacing: 0.02em;
-=======
-.btn-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  color: white;
-  border: none;
-  padding: 1.25rem 3rem;
-  border-radius: 16px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 8px 25px rgba(59, 130, 246, 0.3),
-    0 4px 12px rgba(0, 0, 0, 0.1);
-  min-width: 250px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   position: relative;
   overflow: hidden;
 }
 
-<<<<<<< HEAD
 .trek-recommender .btn-primary::before {
-=======
-.btn-primary::before {
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   content: '';
   position: absolute;
   top: 0;
@@ -357,7 +250,6 @@
   transition: left 0.6s;
 }
 
-<<<<<<< HEAD
 .trek-recommender .btn-primary:hover::before {
   left: 100%;
 }
@@ -369,25 +261,10 @@
 }
 
 .trek-recommender .btn-primary:disabled {
-=======
-.btn-primary:hover::before {
-  left: 100%;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 
-    0 15px 35px rgba(59, 130, 246, 0.4),
-    0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.btn-primary:disabled {
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
   animation: pulse 1.5s ease-in-out infinite;
-<<<<<<< HEAD
   filter: grayscale(0.15);
 }
 
@@ -408,45 +285,17 @@
   color: var(--text-main);
   border-color: var(--primary);
   transform: translateY(-1px);
-=======
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #3b82f6;
-  border: 2px solid #3b82f6;
-  padding: 1rem 2rem;
-  border-radius: 16px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.btn-secondary:hover {
-  background: #3b82f6;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 /* Results Styles */
 .recommendations-container {
   padding: 4rem 3rem;
-<<<<<<< HEAD
   background: var(--surface);
   border-top: 1px solid var(--border-color);
-=======
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .results-header {
   text-align: center;
-<<<<<<< HEAD
   margin-bottom: 3rem;
 }
 
@@ -464,28 +313,6 @@
   margin-bottom: 1.75rem;
   font-weight: 500;
   max-width: 36rem;
-=======
-  margin-bottom: 4rem;
-}
-
-.results-header h2 {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.results-header p {
-  font-size: 1.3rem;
-  color: #64748b;
-  margin-bottom: 2.5rem;
-  font-weight: 500;
-  max-width: 600px;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
@@ -493,7 +320,6 @@
 
 .recommendations-grid {
   display: grid;
-<<<<<<< HEAD
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
@@ -510,23 +336,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-=======
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.trek-card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid #e2e8f0;
-  position: relative;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-card::before {
@@ -536,16 +345,10 @@
   left: 0;
   right: 0;
   height: 4px;
-<<<<<<< HEAD
   background: var(--gradient-btn);
   opacity: 0;
   transition: opacity var(--transition);
   z-index: 1;
-=======
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
-  opacity: 0;
-  transition: opacity 0.3s ease;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-card:hover::before {
@@ -553,23 +356,15 @@
 }
 
 .trek-card:hover {
-<<<<<<< HEAD
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: color-mix(in srgb, var(--primary) 22%, var(--border-color));
-=======
-  transform: translateY(-8px);
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.12),
-    0 15px 35px rgba(0, 0, 0, 0.08);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-card-header {
   position: relative;
 }
 
-<<<<<<< HEAD
 .trek-recommender-banner {
   text-align: center;
   padding: 0.85rem 1rem;
@@ -585,16 +380,11 @@
   background: color-mix(in srgb, var(--secondary) 10%, var(--surface));
 }
 
-=======
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 .trek-image {
   position: relative;
   height: 250px;
   overflow: hidden;
-<<<<<<< HEAD
   aspect-ratio: 16 / 10;
-=======
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-image img {
@@ -610,7 +400,6 @@
 
 .trek-score {
   position: absolute;
-<<<<<<< HEAD
   top: 1rem;
   right: 1rem;
   background: var(--glass);
@@ -621,22 +410,10 @@
   text-align: center;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
-=======
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(15px);
-  padding: 0.75rem 1.25rem;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-score span {
   display: block;
-<<<<<<< HEAD
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--accent);
@@ -649,20 +426,6 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-=======
-  font-size: 1.75rem;
-  font-weight: 900;
-  color: #10b981;
-  text-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
-}
-
-.trek-score small {
-  font-size: 0.85rem;
-  color: #64748b;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-badges {
@@ -674,7 +437,6 @@
 }
 
 .badge {
-<<<<<<< HEAD
   padding: 0.4rem 0.85rem;
   border-radius: var(--radius-full);
   font-size: 0.72rem;
@@ -841,122 +603,11 @@
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
-=======
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-.trek-card-content {
-  padding: 2.5rem;
-}
-
-.trek-name {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #1e293b;
-  margin-bottom: 1.25rem;
-  line-height: 1.3;
-  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.trek-description {
-  color: #64748b;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  font-size: 1.05rem;
-  font-weight: 500;
-}
-
-.trek-details {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-}
-
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #475569;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.detail-item svg {
-  color: #3b82f6;
-  font-size: 1.2rem;
-  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
-}
-
-.trek-highlights {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  border-radius: 16px;
-  border: 1px solid #bae6fd;
-}
-
-.trek-highlights h4 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #0c4a6e;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.trek-highlights ul {
-  list-style: none;
-  padding: 0;
-}
-
-.trek-highlights li {
-  padding: 0.5rem 0;
-  color: #0369a1;
-  font-size: 1rem;
-  font-weight: 500;
-  position: relative;
-  padding-left: 2rem;
-  line-height: 1.5;
-}
-
-.trek-highlights li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #10b981;
-  font-weight: bold;
-  font-size: 1.2rem;
-  background: white;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-sustainability {
   display: flex;
   align-items: center;
-<<<<<<< HEAD
   gap: 0.85rem;
   padding: 0.9rem 1.1rem;
   background: color-mix(in srgb, var(--accent) 10%, var(--surface));
@@ -996,46 +647,11 @@
   padding: 0;
   background: transparent;
   border: none;
-=======
-  gap: 0.75rem;
-  padding: 1.25rem;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-  border-radius: 16px;
-  margin-bottom: 2rem;
-  color: #065f46;
-  font-size: 1rem;
-  font-weight: 700;
-  border: 1px solid #bbf7d0;
-}
-
-.trek-sustainability svg {
-  color: #10b981;
-  font-size: 1.3rem;
-  filter: drop-shadow(0 2px 4px rgba(16, 185, 129, 0.2));
-}
-
-.trek-accommodation {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-}
-
-.trek-accommodation h4 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .accommodation-options {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   gap: 0.65rem;
 }
 
@@ -1056,30 +672,10 @@
   padding: 0.9rem 1rem 1rem;
   border-left: 3px solid var(--secondary);
   background: var(--surface-elevated);
-=======
-  gap: 1rem;
-}
-
-.accommodation-option {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.accommodation-option:hover {
-  background: #f1f5f9;
-  border-color: #3b82f6;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .accommodation-type {
   font-weight: 700;
-<<<<<<< HEAD
   color: var(--text-main);
   font-size: 0.95rem;
   margin-bottom: 0.35rem;
@@ -1089,41 +685,20 @@
   color: var(--text-light);
   font-size: 0.88rem;
   margin: 0 0 0.5rem;
-=======
-  color: #1e293b;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.accommodation-description {
-  color: #64748b;
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   line-height: 1.5;
 }
 
 .accommodation-price {
   font-weight: 700;
-<<<<<<< HEAD
   color: var(--accent);
   font-size: 0.95rem;
-=======
-  color: #10b981;
-  font-size: 1rem;
-  text-shadow: 0 1px 2px rgba(16, 185, 129, 0.1);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-actions {
   display: flex;
-<<<<<<< HEAD
   gap: 0.75rem;
   margin-top: auto;
   padding-top: 0.25rem;
-=======
-  gap: 1rem;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .trek-actions button {
@@ -1154,7 +729,6 @@
   height: 300px;
 }
 
-<<<<<<< HEAD
 .trek-recommender .btn-outline {
   background: transparent;
   color: var(--primary);
@@ -1189,40 +763,6 @@
 .trek-recommender .btn-outline.in-wishlist:hover {
   background: color-mix(in srgb, #ef4444 28%, var(--surface));
   border-color: #f87171;
-=======
-.btn-outline {
-  background: transparent;
-  color: #3b82f6;
-  border: 2px solid #3b82f6;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  flex: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.btn-outline:hover {
-  background: #3b82f6;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-}
-
-.btn-outline.in-wishlist {
-  background: #ef4444;
-  color: white;
-  border-color: #ef4444;
-}
-
-.btn-outline.in-wishlist:hover {
-  background: #dc2626;
-  border-color: #dc2626;
-  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .btn-outline.in-wishlist svg {
@@ -1231,73 +771,43 @@
 
 .trek-actions .btn-primary {
   flex: 1;
-<<<<<<< HEAD
   padding: 0.85rem 1.25rem;
   font-size: 0.88rem;
   min-width: 0;
-=======
-  padding: 1rem 1.5rem;
-  font-size: 0.95rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .no-recommendations {
   text-align: center;
-<<<<<<< HEAD
   padding: 3rem 2rem;
   background: var(--surface-elevated);
   border-radius: var(--radius-2xl);
   border: 2px dashed var(--border-color);
-=======
-  padding: 4rem 3rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 24px;
-  border: 2px dashed #cbd5e1;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   margin: 2rem 0;
 }
 
 .no-recommendations h3 {
-<<<<<<< HEAD
   font-size: 1.5rem;
   color: var(--text-main);
   margin-bottom: 0.75rem;
-=======
-  font-size: 2rem;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   font-weight: 800;
 }
 
 .no-recommendations p {
-<<<<<<< HEAD
   color: var(--text-light);
   margin-bottom: 1.5rem;
   font-size: 1rem;
-=======
-  color: #64748b;
-  margin-bottom: 2.5rem;
-  font-size: 1.1rem;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   font-weight: 500;
 }
 
 /* Wishlist Styles */
 .wishlist-container {
   padding: 4rem 3rem;
-<<<<<<< HEAD
   background: var(--surface);
   border-top: 1px solid var(--border-color);
-=======
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .wishlist-header {
   text-align: center;
-<<<<<<< HEAD
   margin-bottom: 3rem;
 }
 
@@ -1313,26 +823,6 @@
   font-size: 1.05rem;
   color: var(--text-light);
   margin-bottom: 1.5rem;
-=======
-  margin-bottom: 4rem;
-}
-
-.wishlist-header h2 {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.wishlist-header p {
-  font-size: 1.3rem;
-  color: #64748b;
-  margin-bottom: 2.5rem;
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   font-weight: 500;
 }
 
@@ -1345,13 +835,8 @@
 
 .wishlist-card {
   position: relative;
-<<<<<<< HEAD
   border: 1px solid color-mix(in srgb, #f87171 45%, var(--border-color));
   box-shadow: var(--shadow-md);
-=======
-  border: 2px solid #ef4444;
-  box-shadow: 0 20px 40px rgba(239, 68, 68, 0.1);
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 }
 
 .wishlist-badge {
@@ -1377,13 +862,6 @@
   50% { opacity: 0.6; }
 }
 
-<<<<<<< HEAD
-=======
-.btn-primary:disabled {
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 /* Responsive Design */
 @media (max-width: 1024px) {
   .recommender-container {
@@ -1446,11 +924,7 @@
     gap: 2.5rem;
   }
   
-<<<<<<< HEAD
   .trek-stats-grid {
-=======
-  .trek-details {
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
     grid-template-columns: 1fr;
   }
   

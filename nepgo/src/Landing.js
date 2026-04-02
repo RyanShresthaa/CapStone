@@ -2,18 +2,11 @@ import React from 'react';
 import './Landing.css';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-<<<<<<< HEAD
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from './contexts/ThemeContext';
 import { TREK_LOCATION_PHOTOS } from './data/trekLocationPhotos';
 
 const HERO_BG = TREK_LOCATION_PHOTOS.mountEverest;
-=======
-import { useTheme } from './contexts/ThemeContext';
-
-const HERO_BG = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80';
-const HERO_CARD_IMG = 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80';
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 
 const AnimatedStat = ({ value, label, duration = 1200 }) => {
   const [count, setCount] = React.useState(0);
@@ -37,18 +30,6 @@ const AnimatedStat = ({ value, label, duration = 1200 }) => {
   );
 };
 
-<<<<<<< HEAD
-=======
-const FEATURES = [
-  { icon: '🧗', title: 'Expert Guides', desc: 'Certified, local guides with years of Himalayan experience.' },
-  { icon: '🗺️', title: 'Custom Routes', desc: 'Personalized itineraries for every fitness level and interest.' },
-  { icon: '🌡️', title: 'Weather Updates', desc: 'Real-time weather forecasts and safety alerts.' },
-  { icon: '🏠', title: 'Local Culture', desc: 'Immerse yourself in authentic Himalayan culture and traditions.' },
-  { icon: '🚑', title: 'Safety First', desc: 'Emergency support, first aid, and insurance included.' },
-  { icon: '📷', title: 'Photo Memories', desc: 'Professional photography to capture your journey.' },
-];
-
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
 const TESTIMONIALS = [
   {
     avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
@@ -71,10 +52,6 @@ const Landing = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   return (
     <div className={classNames('landing-container', { dark: isDarkMode })}>
-<<<<<<< HEAD
-=======
-      {/* Hero Section */}
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       <section
         className="landing-hero-bg full-bleed"
         style={{
@@ -86,7 +63,6 @@ const Landing = () => {
           position: 'relative',
         }}
       >
-<<<<<<< HEAD
         <div className="hero-image-mesh" aria-hidden />
         <div className={classNames('hero-glass-overlay', { dark: isDarkMode })} />
         <div className="hero-gradient-fade" />
@@ -119,16 +95,6 @@ const Landing = () => {
             </Link>
           </div>
         </div>
-=======
-        <div className={classNames('hero-glass-overlay', { dark: isDarkMode })} />
-        <div className="hero-gradient-fade" />
-        <div className="hero-center-content">
-          <h1 className="hero-headline">NepGo</h1>
-          <h2 className="hero-subheadline">Where Mountains Meet Adventure</h2>
-          <p className="hero-desc">Trek smarter. Discover deeper. Experience the Himalayas like never before.</p>
-        </div>
-        <button className="hero-cta-btn">Start Your Journey →</button>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
       </section>
 
       {/* Features Section */}
@@ -190,7 +156,6 @@ const Landing = () => {
       <section className="cta-section">
         <div className="container">
           <div className="cta-content">
-<<<<<<< HEAD
             <p className="cta-eyebrow">Start today</p>
             <h2 className="cta-title">Ready for your next ridge?</h2>
             <p className="cta-lead">
@@ -204,13 +169,6 @@ const Landing = () => {
                 I already have an account
               </Link>
             </div>
-=======
-            <h2>Ready for Your Next Adventure?</h2>
-            <p>Join thousands of trekkers who have discovered Nepal's wonders with NepGo.</p>
-            <Link to="/signup" className="btn btn-primary btn-xl">
-              Get Started Free
-            </Link>
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
           </div>
         </div>
       </section>
