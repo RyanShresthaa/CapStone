@@ -3,7 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-}
+
 
 /* Custom Scrollbar Styles with theme support */
 ::-webkit-scrollbar {
