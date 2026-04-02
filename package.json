@@ -4,13 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "dev:backend": "npm run dev --prefix nepgo.backend",
     "dev:frontend": "npm start --prefix nepgo",
     "dev": "npx concurrently \"npm run dev:backend\" \"npm run dev:frontend\""
-=======
-    "dev": "nodemon index.js"
->>>>>>> ae36830a320bcef5621904da780750d5ee0c20fb
   },
   "keywords": [],
   "author": "",
