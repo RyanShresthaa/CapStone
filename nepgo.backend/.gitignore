@@ -1,0 +1,6 @@
+node_modules/
+
+# Secrets and local env (never commit real keys)
+.env
+.env.*
+!.env.example
